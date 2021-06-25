@@ -38,56 +38,85 @@ img {
 }
 
 /* -------- LAYOUT --------------------------------- */
-.hero-background {
-  height: 32rem;
+
+.logo-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 60vmin;
   width: auto;
   background-color: var(--laranja-pastel);
 }
 
 .white-background {
-  height: 13.43rem;
-  width: 53.56rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 25vmin;
+  width: 90vmin;
   background-color: #efeaea;
-  position: absolute;
-  top: 13.5rem;
-  right: 0;
   border-radius: 1.25rem;
-  translate: 1rem;
 }
 
-.white-background img {
-  height: 26.875rem;
+.white-background > *{
+  flex-grow: 1;
+}
+
+.logo-text {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.logo-text > * {
+  text-align: center;
+}
+
+.logo-text h1 {
+  display: block;
+  width: 100%;
+  font: 900 7vmin "Poppins", sans-serif;
+}
+.logo-text p {
+  display: block;
+  width: 100%;
+  font: 200 1.2vmin "Poppins", sans-serif;
+}
+
+.logo-icon {
+  display: flex;
+  justify-content: center;
+  height: 50vmin;
+}
+
+.logo-icon img{
   width: auto;
-  top: -6.875rem;
-  right: 2rem;
-  position: fixed;
-}
-
-.white-background h1 {
-  padding-top: 2rem;
-  padding-left: 3rem;
-  font: 900 5rem "Poppins", sans-serif;
-}
-.white-background p {
-  padding-left: 2rem;
-  font: 200 0.9rem "Poppins", sans-serif;
-  position: absolute;
 }
 
 .body {
-  height: 500rem;
   width: 100%;
   display: flex;
   background-color: var(--fundo);
+  padding: 4rem 2rem;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-flow: row;
+}
+
+.body > * {
+  text-align: justify;
 }
 
 .container-left {
-  padding-top: 4rem;
-  padding-left: 4rem;
-  left: 0;
-  width: 75%;
-  text-align: justify;
+  flex: 0 0 70%;
+  margin-right: 2rem;
 }
+
+.container-right{
+  flex: 1;
+}
+
 .container-left h2 {
   padding-top: 2rem;
   padding-bottom: 1rem;
@@ -106,13 +135,6 @@ img {
   padding: 0 2rem;
 }
 
-.container-right {
-  padding-top: 4rem;
-  right: 2.5rem;
-  position: absolute;
-  width: 20%;
-  text-align: justify;
-}
 .container-right h2 {
   padding-top: 2rem;
   padding-bottom: 1rem;
@@ -127,7 +149,6 @@ img {
   height: auto;
   width: auto;
   background-color: var(--branco);
-  position: absolute;
   border-radius: 1.25rem;
   padding: 0 2rem;
 }
