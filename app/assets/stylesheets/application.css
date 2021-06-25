@@ -43,7 +43,7 @@ img {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 500px;
+  height: 60vmin;
   width: auto;
   background-color: var(--laranja-pastel);
 }
@@ -52,38 +52,42 @@ img {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 220px;
-  width: 830px;
+  height: 25vmin;
+  width: 90vmin;
   background-color: #efeaea;
   border-radius: 1.25rem;
 }
 
-.white-background>*{
+.white-background > *{
   flex-grow: 1;
-  align-items: center;
 }
 
 .logo-text {
   height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.logo-text > * {
+  text-align: center;
 }
 
 .logo-text h1 {
   display: block;
-  margin-top: 30px;
-  padding-left: 3rem;
-  font: 900 5rem "Poppins", sans-serif;
+  width: 100%;
+  font: 900 7vmin "Poppins", sans-serif;
 }
 .logo-text p {
   display: block;
-  padding-left: 2rem;
-  font: 200 0.9rem "Poppins", sans-serif;
-  position: absolute;
-  margin-bottom: auto;
+  width: 100%;
+  font: 200 1.2vmin "Poppins", sans-serif;
 }
 
 .logo-icon {
   display: flex;
-  height: 450px;
+  justify-content: center;
+  height: 50vmin;
 }
 
 .logo-icon img{
@@ -91,19 +95,28 @@ img {
 }
 
 .body {
-  height: 500rem;
   width: 100%;
   display: flex;
   background-color: var(--fundo);
+  padding: 4rem 2rem;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-flow: row;
+}
+
+.body > * {
+  text-align: justify;
 }
 
 .container-left {
-  padding-top: 4rem;
-  padding-left: 4rem;
-  left: 0;
-  width: 75%;
-  text-align: justify;
+  flex: 0 0 70%;
+  margin-right: 20px;
 }
+
+.container-right{
+  flex: 1;
+}
+
 .container-left h2 {
   padding-top: 2rem;
   padding-bottom: 1rem;
@@ -122,13 +135,6 @@ img {
   padding: 0 2rem;
 }
 
-.container-right {
-  padding-top: 4rem;
-  right: 2.5rem;
-  position: absolute;
-  width: 20%;
-  text-align: justify;
-}
 .container-right h2 {
   padding-top: 2rem;
   padding-bottom: 1rem;
@@ -143,7 +149,6 @@ img {
   height: auto;
   width: auto;
   background-color: var(--branco);
-  position: absolute;
   border-radius: 1.25rem;
   padding: 0 2rem;
 }
