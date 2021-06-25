@@ -38,40 +38,56 @@ img {
 }
 
 /* -------- LAYOUT --------------------------------- */
-.hero-background {
-  height: 32rem;
+
+.logo-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 500px;
   width: auto;
   background-color: var(--laranja-pastel);
 }
 
 .white-background {
-  height: 13.43rem;
-  width: 53.56rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 220px;
+  width: 830px;
   background-color: #efeaea;
-  position: absolute;
-  top: 13.5rem;
-  right: 0;
   border-radius: 1.25rem;
-  translate: 1rem;
 }
 
-.white-background img {
-  height: 26.875rem;
-  width: auto;
-  top: -6.875rem;
-  right: 2rem;
-  position: fixed;
+.white-background>*{
+  flex-grow: 1;
+  align-items: center;
 }
 
-.white-background h1 {
-  padding-top: 2rem;
+.logo-text {
+  height: 100%;
+}
+
+.logo-text h1 {
+  display: block;
+  margin-top: 30px;
   padding-left: 3rem;
   font: 900 5rem "Poppins", sans-serif;
 }
-.white-background p {
+.logo-text p {
+  display: block;
   padding-left: 2rem;
   font: 200 0.9rem "Poppins", sans-serif;
   position: absolute;
+  margin-bottom: auto;
+}
+
+.logo-icon {
+  display: flex;
+  height: 450px;
+}
+
+.logo-icon img{
+  width: auto;
 }
 
 .body {
