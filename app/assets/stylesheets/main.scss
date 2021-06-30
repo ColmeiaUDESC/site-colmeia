@@ -1,3 +1,119 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* -------- LAYOUT --------------------------------- */
+
+.logo-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 60vmin;
+  width: auto;
+  background-color: var(--laranja-pastel);
+}
+
+.white-background {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 25vmin;
+  width: 90vmin;
+  background-color: #efeaea;
+  border-radius: 1.25rem 0 0 1.25rem;
+}
+
+.white-background > *{
+  flex-grow: 1;
+}
+
+.logo-text {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.logo-text > * {
+  text-align: center;
+}
+
+.logo-text h1 {
+  display: block;
+  width: 100%;
+  font: 900 7vmin "Poppins", sans-serif;
+}
+.logo-text p {
+  display: block;
+  width: 100%;
+  font: 200 1.2vmin "Poppins", sans-serif;
+}
+
+.logo-icon {
+  display: flex;
+  justify-content: center;
+  height: 50vmin;
+}
+
+.logo-icon img{
+  width: auto;
+}
+
+.main-section {
+  width: 100%;
+  display: flex;
+  background-color: var(--fundo);
+  padding: 4rem 2rem;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-flow: row;
+}
+
+.body > * {
+  text-align: justify;
+}
+
+.container-left {
+  flex: 0 0 70%;
+  margin-right: 2rem;
+}
+
+.container-right{
+  flex: 1;
+}
+
+.container-left h2 {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  font: 200 2rem "Poppins", sans-serif;
+}
+.container-left p {
+  padding-bottom: 2rem;
+  font: 200 0.9rem "Poppins", sans-serif;
+}
+
+.white-frame {
+  height: auto;
+  width: auto;
+  background-color: var(--branco);
+  border-radius: 1.25rem;
+  padding: 2rem;
+}
+
+.white-frame:nth-child(n) {
+  margin-top: 24px;
+}
+
+.white-frame:nth-child(1) {
+  margin-top: 0;
+}
+
+.container-right h2 {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  font: 200 2rem "Poppins", sans-serif;
+}
+.container-right p {
+  padding-bottom: 2rem;
+  font: 200 0.9rem "Poppins", sans-serif;
+}
