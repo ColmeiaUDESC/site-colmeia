@@ -1,0 +1,14 @@
+default: &default
+
+adapter: postgresql
+
+encoding: unicode
+
+host: postgres
+
+username: postgres
+
+password: 
+
+<<: *default
+database: site_colmeia_development
