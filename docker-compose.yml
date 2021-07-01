@@ -1,0 +1,23 @@
+version: "3.3"
+services:
+  postgres:
+    image: postgres:9.4.5
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+  rails:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/site-colmeia
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      PG_PASSWORD: password
+volumes:
+  dbdata:
