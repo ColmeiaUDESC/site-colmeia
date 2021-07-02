@@ -13,6 +13,7 @@ Neste repositório se encontra o código fonte do website da Colmeia UDESC, um p
   - [Instalação usando Docker](#instalação-usando-docker)
   - [Instalação manual](#instalação-manual)
   - [Execução](#execução)
+  - [Contribuições](#contribuições)
 
 <!--te-->
 
@@ -74,3 +75,12 @@ Para executar o projeto usando o Ruby on Rails, execute:
 ```sh
 bin/rails server
 ```
+
+## Contribuições
+
+A produção desse site foi graças a todos que contribuiram com o projeto! Muito obrigado a esses contribuintes:
+
+* [Luciano Wayand](https://github.com/lucianowayand)
+* [Gabriel Junkes](https://github.com/GabrielFJunkes)
+* [João Dematte](https://github.com/joaodematte)
+* [Kawan Weege](https://github.com/DragonOfWar)
