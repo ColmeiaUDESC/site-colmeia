@@ -1,33 +1,76 @@
-# Nosso site on Rails!
+# Site da Colmeia UDESC
 
-Oque deve ser contido no readme está escrito abaixo:
+Neste repositório se encontra o código fonte do website da Colmeia UDESC, um projeto de extensão dedicado na disseeminação do uso de Hardware e Software Livre. O site foi feito usando Ruby on Rails e Docker 
 
-## Então, o que escrever?
+## Tabela de Conteúdos
 
-###    Título e breve descrição do projeto
+<!--ts-->
 
-No título ou na descrição você pode colocar o número da versão do projeto, como também a placa de desenvolvimento usada.
+- [Site da Colmeia UDESC](#site-da-colmeia-udesc)
+  - [Tabela de Conteúdos](#tabela-de-conteúdos)
+  - [Dependências](#dependências)
+  - [Instalação](#instalação)
+  - [Instalação usando Docker](#instalação-usando-docker)
+  - [Instalação manual](#instalação-manual)
+  - [Execução](#execução)
 
-Se houverem outros detalhes ou até mesmo um pdf com a descrição completa, pode-se deixar links para os mesmos. Caso você use GitHub, uma boa opção é utilizar-se de wikis.
+<!--te-->
 
-###    Pré-requisitos
+## Dependências
 
-Como num artigo científico, deve-se descrever as ferramentas usadas: qual compilador, biblioteca, IDE, sistema operacional, etc. foram usados? Caso contrário o código pode ser visto como algo que funciona somente na teoria e não vai atrair a atenção de quem está lendo.
+O projeto possui as seguintes dependências:
 
-Entretanto não precisa ser um tutorial passo a passo. Devemos lembrar que o sucesso da replicação depende também das habilidades técnicas de quem vai clonar o código. Mas se você tem um coração de mãe, poderá deixar links para tutoriais.
+* Instalação com Docker
+  * [Docker](https://docs.docker.com/get-docker/)
+  * [Docker Compose](https://docs.docker.com/compose/install/)
+* Instalação manual
+  * [Ruby 3.0.1](https://www.ruby-lang.org/en/downloads/)
+  * [Ruby on Rails](https://guides.rubyonrails.org/v5.0/getting_started.html#installing-rails)
+  * [PostgreSQL 12](https://www.postgresql.org/download/)
+  * [Node.Js](https://nodejs.org/en/)
+  * [Yarn](https://yarnpkg.com/getting-started/install)
 
-###    Guia de instalação
+## Instalação
 
-É preciso definir variáveis de ambiente no sistema operacional? É pra deixar tudo na variável PATH? Qual é o comando para compilar usando o makefile fornecido? Existem outros comandos implementados no makefile? Existe alguma ferramenta a ser instalada de forma especial?
+Para instalar o projeto na sua máquina, pode-se usar o Docker ou manualmente.
+Instale as dependências, de acordo com o método de instalação que irá realizar, e depois clone o projeto na sua máquina.
+Agora, realize um dos seguintes métodos de instalação.
 
-###    Licença
+## Instalação usando Docker
 
-Quando se trata de de projetos Open Source, é uma descrição de extrema importância.
+Vá para o diretório do projeto e execute:
 
-A melhor opção para não deixar visualmente poluído é escrever em uma sentença a qual licença pertence e o link para o documento LICENSE.txt.
+```sh
+sudo docker-compose build
+sudo docker-compose run web yarn add @rails/webpacker
+```
 
-Existem diversos tipos de licença: MIT, BSD, LGPL2, LGPL3, etc. O GitHub fez uma página explicando a diferença entre as licenças, como também o Open Source Guide dá dicas adicionais para escolher a licença correta para o seu projeto. Este relatório técnico do IME-USP informa sobre as licenças, suas vantagens e desvantagens.
+Caso ocorra de o site não funcionar devido à ausencia de um banco de dados, execute:
 
-###    Autoria e contribuições
+```sh
+sudo docker-compose run web rails db:create
+```
 
-Além do seu próprio nome, é bom constar a ajuda de outras pessoas e institutos que estão contribuindo de alguma forma com o desenvolvimento do projeto.
+## Instalação manual
+
+Vá para o diretório do projeto e execute:
+
+```sh
+gem install bundler
+bundle install
+yarn install
+```
+
+## Execução
+
+Para executar o projeto usando docker, execute:
+
+```sh
+sudo docker-compose up
+```
+
+Para executar o projeto usando o Ruby on Rails, execute:
+
+```sh
+bin/rails server
+```
