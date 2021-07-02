@@ -19,6 +19,6 @@ RUN bundle exec rails db:setup RAILS_ENV=development RAILS_ENV=production rails 
 
 COPY . .
 
-RUN yarn add @rails/webpacker
+RUN yarn install
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
