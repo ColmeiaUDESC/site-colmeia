@@ -15,7 +15,3 @@ RUN yarn install
 RUN bundle install --jobs 4
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
-
-# COPY docker-entrypoint.sh docker-entrypoint.sh
-# RUN chmod +x docker-entrypoint.sh
-# ENTRYPOINT [ "/app/docker-entrypoint.sh" ]
