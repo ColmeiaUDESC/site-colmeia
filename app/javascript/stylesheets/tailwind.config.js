@@ -7,7 +7,7 @@ module.exports = {
     extend: { colors: { gray: colors.trueGray } },
   },
   variants: {
-    extend: {},
+    extend: { opacity: ['disabled'] },
   },
   plugins: [],
 }
