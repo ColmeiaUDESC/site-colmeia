@@ -42,14 +42,8 @@ Agora, realize um dos seguintes métodos de instalação.
 Vá para o diretório do projeto e execute:
 
 ```sh
-sudo docker-compose build
-sudo docker-compose run web yarn add @rails/webpacker
-```
-
-Caso ocorra de o site não funcionar devido à ausencia de um banco de dados, execute:
-
-```sh
 sudo docker-compose run web rails db:create
+sudo docker-compose up
 ```
 
 ## Instalação manual

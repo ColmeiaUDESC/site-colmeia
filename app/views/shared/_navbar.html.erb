@@ -1,14 +1,19 @@
 <div class="bg-gray-800">
   <div class="container mx-auto px-6 md:px-4 py-5">
-    <div class="relative flex grid items-center grid-cols-2 lg:grid-cols-3">
+    <div class="relative flex grid items-center grid-cols-2">
+      <a href="/" class="lg:hidden inline-flex items-center">
+        <%= image_tag "Colmeia.png", class: "h-10" %>
+      </a>
       <ul class="flex items-center hidden space-x-8 lg:flex">
         <li><a href="/" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded hover:bg-gray-900 focus:shadow-outline focus:outline-none">Início</a></li>
         <li><a href="/" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded hover:bg-gray-900 focus:shadow-outline focus:outline-none">Membros</a></li>
         <li><a href="/" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded hover:bg-gray-900 focus:shadow-outline focus:outline-none">Projetos</a></li>
+        <li><a href="https://github.com/ColmeiaUDESC" target="_newblank" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded hover:bg-gray-900 focus:shadow-outline focus:outline-none">Github</a></li>
       </ul>
-      <a href="/" aria-label="Company" title="Company" class="inline-flex items-center lg:mx-auto">
-        <%= image_tag "Colmeia.png", class: "h-12" %>
+      <%# <a href="/" aria-label="Company" title="Company" class="inline-flex items-center lg:mx-auto">
+        <%= image_tag "Colmeia.png", class: "h-12" 
       </a>
+      %>
       <ul class="flex items-center hidden ml-auto space-x-8 lg:flex">
         <li>
           <a 
@@ -60,6 +65,7 @@
                 <li><a href="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-100 hover:text-gray-800">Início</a></li>
                 <li><a href="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-100 hover:text-gray-800">Membros</a></li>
                 <li><a href="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-100 hover:text-gray-800">Projetos</a></li>
+                <li><a href="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-100 hover:text-gray-800">Github</a></li>
                 <li><a href="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-100 hover:text-gray-800">Login</a></li>
                 <li>
                   <a
