@@ -1,22 +1,22 @@
-version: "3.3"
+version: "3.8"
 services:
   web:
     build: .
+    restart: always
     volumes:
-      - .:/var/app
-      - ~/.bash_history:/root/.bash_history
-      - ./config/database.yml:/var/config/database.yml
+      - .:/app  
+      - yarn-volume:/app/node_modules
     ports:
       - "3000:3000"
     environment:
-      PG_PASSWORD: password
+      - DATABASE_URL=postgres://postgres:password@postgres:5432/site_colmeia_development
     depends_on:
       - postgres
     tty: true
     stdin_open: true
 
   postgres:
-    image: postgres:9.4.5
+    image: postgres:12.1-alpine
     environment:
       POSTGRES_PASSWORD: password
     ports:
@@ -25,4 +25,5 @@ services:
       - dbdata:/var/lib/postgresql/data
 
 volumes:
+  yarn-volume:
   dbdata:
