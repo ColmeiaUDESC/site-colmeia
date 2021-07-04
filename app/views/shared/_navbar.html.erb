@@ -15,16 +15,20 @@
       </a>
       %>
             <ul class="flex items-center hidden ml-auto space-x-8 lg:flex">
-                <li>
-                    <a href="/" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded hover:bg-gray-900 focus:shadow-outline focus:outline-none">
-                        Login
-                    </a>
-                </li>
-                <li>
-                    <a href="/" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded bg-gradient-to-r from-yellow-400 to-yellow-500 focus:shadow-outline focus:outline-none hover:via-yellow-400">
+                <%if current_page?(cadastro_path) %>
+                <li><a href="/entre" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded bg-gradient-to-r from-yellow-400 to-yellow-500 focus:shadow-outline focus:outline-none hover:via-yellow-400">
+                        Login</a></li>
+                <% elsif current_page?(entre_path) %>
+                <li><a href="/cadastro" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded bg-gradient-to-r from-yellow-400 to-yellow-500 focus:shadow-outline focus:outline-none hover:via-yellow-400">
                         Cadastre-se
-                    </a>
-                </li>
+                    </a></li>
+                <% else %>
+                <li><a href="/entre" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded hover:bg-gray-900 focus:shadow-outline focus:outline-none">
+                        Login</a></li>
+                <li><a href="/cadastro" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded bg-gradient-to-r from-yellow-400 to-yellow-500 focus:shadow-outline focus:outline-none hover:via-yellow-400">
+                        Cadastre-se
+                    </a></li>
+                <% end %>
             </ul>
             <div class="ml-auto lg:hidden">
                 <button id="mobileMenuOpen" aria-label="Open Menu" title="Open Menu" class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline">

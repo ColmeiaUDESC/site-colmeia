@@ -5,11 +5,11 @@ Rails.application.routes.draw do
     root 'main#index'
 
     # SIGN_UP
-    get "sign_up", to: "registrations#new"
-    post "sign_up" , to: "registrations#create"
+    get "cadastro", to: "cadastro#new"
+    post "cadastro" , to: "cadastro#create"
 
     # SIGN_IN
-    get "sign_in", to: "sessions#new" 
-    post "sign_in" , to: "sessions#create"
+    get "entre", to: "entre#new" 
+    post "entre" , to: "entre#create"
 
 end
