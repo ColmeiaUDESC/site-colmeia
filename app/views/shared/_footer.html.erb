@@ -2,10 +2,12 @@
   <div class="flex flex-col justify-center text-center">
     <p class="text-white dark:text-gray-200">Agradecemos a todos os colaboradoes que ajudaram a desenvolver o site no <a href="https://github.com/ColmeiaUDESC/site-colmeia" target="_newblank" class="hover:underline">GitHub</a>.</p>
     <div class="flex mt-4 justify-center -space-x-2">
-      <%= image_tag('https://avatars.githubusercontent.com/u/36968613?v=4', class: 'inline-block h-8 w-8 rounded-full ring-2 ring-white') %>
-      <%= image_tag('https://avatars.githubusercontent.com/u/36968613?v=4', class: 'inline-block h-8 w-8 rounded-full ring-2 ring-white') %>
-      <%= image_tag('https://avatars.githubusercontent.com/u/36968613?v=4', class: 'inline-block h-8 w-8 rounded-full ring-2 ring-white') %>
-      <%= image_tag('https://avatars.githubusercontent.com/u/36968613?v=4', class: 'inline-block h-8 w-8 rounded-full ring-2 ring-white') %>
+      <% 
+      response = HTTParty.get('https://api.github.com/repos/ColmeiaUDESC/site-colmeia/contributors').parsed_response
+      response.each do | elem |
+      %>
+      <%= image_tag(elem["avatar_url"], class: 'inline-block h-8 w-8 rounded-full ring-2 ring-white')%>
+      <% end %>
     </div>
   </div>
 </footer>
