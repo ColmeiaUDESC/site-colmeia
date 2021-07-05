@@ -1,49 +1,49 @@
-<div class="bg-gray-100 max-w-md w-full rounded shadow p-10">
+<div class="bg-gray-100 max-w-md w-full rounded shadow p-10 dark:bg-gray-800">
   <%= image_tag "Colmeia.png", class: "h-12 mx-auto" %>
   <form class="mt-10">
     <div class="mb-4">
       <div class="flex space-x-4">
         <div>
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+          <label class="block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" for="email">
           Nome 
           </label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="Nome">
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" id="email" type="text" placeholder="Nome">
         </div>
         <div>
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+          <label class="block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" for="email">
           Sobrenome 
           </label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="Sobrenome">
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" id="email" type="text" placeholder="Sobrenome">
         </div>
       </div>
     </div>
     <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+      <label class="block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" for="email">
         Email
       </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="Email">
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" id="email" type="text" placeholder="Email">
     </div>
     <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+      <label class="block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" for="email">
         Confirmar email
       </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="Preencha seu email novamente">
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" id="email" type="text" placeholder="Preencha seu email novamente">
     </div>
     <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+      <label class="block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" for="password">
         Senha
       </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="********">
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" id="password" type="password" placeholder="********">
     </div>
     <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+      <label class="block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" for="password">
         Confirmação de senha
       </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="********">
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" id="password" type="password" placeholder="********">
     </div>
     <button class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="button">
       Registrar
     </button>
-    <%= link_to '<- Ir à página de login', login_path, class: 'inline-block align-baseline font-bold text-sm text-gray-700 hover:text-gray-800 mt-2' %>
+    <%= link_to '<- Ir à página de login', login_path, class: 'inline-block align-baseline font-bold text-sm text-gray-700 hover:text-gray-800 mt-2 dark:text-gray-200 dark:hover:text-gray-300' %>
   </form>
 </div>
