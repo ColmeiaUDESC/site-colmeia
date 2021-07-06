@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'login', to: 'login#index'
   
-  get 'register', to: 'register#index'
+  get 'cadastro', to: 'cadastro#index'
 
   get 'membros', to: 'membros#index'
 
