@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
   
   def new
     @page_title = 'Colmeia | Login'
+    # Redireciona o usuario para root se estiver logado
+    if session[:user_id]
+      redirect_to root_path
+    end
   end
 
   def create
