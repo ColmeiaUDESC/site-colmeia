@@ -21,33 +21,35 @@
 <main>
   <div class="container mx-auto block py-10 px-4 space-y-10 lg:mt-10 lg:space-y-0 lg:space-x-4 lg:flex">
     <div class="block w-full lg:w-2/3 space-y-4">
-      <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
-        <a href="#" class="text-3xl font-bold text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300">Ações durante a pandemia</a>
-        <p class="mt-2 text-gray-700 dark:text-gray-200">Escrito por Luciano Abreu em 03/07/2021 às 23:21.</p>
-        <p class="mt-4 text-gray-700 dark:text-gray-200">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor molestie magna vulputate congue. Morbi eu tempor velit. Aliquam pharetra erat dignissim, rutrum erat sit amet, dapibus tellus. Duis sit amet mauris nec erat sollicitudin lacinia sed sed nulla. Duis tempor consectetur elit, sed fringilla libero varius et. Etiam nec fermentum augue, sed bibendum sem. Morbi non diam vitae urna ullamcorper tempus. Quisque quis luctus orci, posuere viverra justo. Ut non ornare odio...
-        </p>
-        <div class="mt-10">
-          <hr class="dark:border-gray-700">
-        </div>
-        <div class="flex justify-end mt-10">
-          <button class="font-medium p-4 bg-gray-700 text-white rounded hover:bg-gray-800">Continue lendo -></button>
-        </div>
-      </div>
-
-      <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
-        <a href="#" class="text-3xl font-bold text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300">Ações durante a pandemia</a>
-        <p class="mt-2 text-gray-700 dark:text-gray-200">Escrito por Luciano Abreu em 03/07/2021 às 23:21.</p>
-        <p class="mt-4 text-gray-700 dark:text-gray-200">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor molestie magna vulputate congue. Morbi eu tempor velit. Aliquam pharetra erat dignissim, rutrum erat sit amet, dapibus tellus. Duis sit amet mauris nec erat sollicitudin lacinia sed sed nulla. Duis tempor consectetur elit, sed fringilla libero varius et. Etiam nec fermentum augue, sed bibendum sem. Morbi non diam vitae urna ullamcorper tempus. Quisque quis luctus orci, posuere viverra justo. Ut non ornare odio...
-        </p>
-        <div class="mt-10">
-          <hr class="dark:border-gray-700">
-        </div>
-        <div class="flex justify-end mt-10">
-          <button class="font-medium p-4 bg-gray-700 text-white rounded hover:bg-gray-800">Continue lendo -></button>
-        </div>
-      </div>
+      <%
+        # Pega os ultimos 3 posts e inverte para que o primeiro seja o mais atual
+        @posts = Post.order("created_at ASC").last(3).reverse()
+        if @posts
+          @posts.each do | post |
+            %>
+            <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
+              <%= link_to post.title, post_path(id: post.id), :class =>"text-3xl font-bold text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300"%>
+              <p class="mt-2 text-gray-700 dark:text-gray-200">Escrito por <%= post.users_name %> em <%= post.created_at %>.</p>
+              <p class="mt-4 text-gray-700 dark:text-gray-200">
+                <%= sanitize post.desc %>
+              </p>
+              <div class="mt-10">
+                <hr class="dark:border-gray-700">
+              </div>
+              <div class="flex justify-end mt-10">
+                <%= button_to "Continue lendo ->", post_path(id: post.id), :class => "font-medium p-4 bg-gray-700 text-white rounded hover:bg-gray-800", :method => :get %>
+              </div>
+            </div>
+            <%
+          end
+        else
+          %>
+          <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
+            <h1 class="text-2xl font-bold text-gray-700 dark:text-gray-200">Que pena, não há posts 😞</h1>
+          </div>
+          <%
+        end
+      %>
     </div>
 
     <hr class="dark:border-gray-700">

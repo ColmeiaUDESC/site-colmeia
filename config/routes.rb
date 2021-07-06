@@ -14,4 +14,9 @@ Rails.application.routes.draw do
     get 'membros', to: 'membros#index'
 
     get 'projetos', to: 'projetos#index'
+
+    resources :posts, except: [:index]
+
+    get 'posts/pag/:pag', to: 'posts#index', as: 'posts_pag'
+
 end
