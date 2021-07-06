@@ -11,15 +11,13 @@
 
     <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap',
       media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'navbar', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbo-track': 'reload' %>
 </head>
 
 <body>
-    <div class="flex flex-col min-h-screen bg-white dark:bg-gray-800">
-      <%= render partial: 'shared/navbar' %>
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-300">
       <%= yield %>
-      <%= render partial: 'shared/footer' %>
     </div>
 </body>
 
