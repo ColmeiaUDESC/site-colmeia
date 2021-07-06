@@ -4,4 +4,12 @@ Rails.application.routes.draw do
   
     root 'main#index'
 
+    # SIGN_UP
+    get "cadastro", to: "cadastro#new"
+    post "cadastro" , to: "cadastro#create"
+
+    # SIGN_IN
+    get "entre", to: "entre#new" 
+    post "entre" , to: "entre#create"
+
 end

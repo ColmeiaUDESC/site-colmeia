@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  password_digest: MyString
+  name: MyString
+  situacao: MyString
+  data_de_inicio: 2021-07-04
+
+two:
+  email: MyString
+  password_digest: MyString
+  name: MyString
+  situacao: MyString
+  data_de_inicio: 2021-07-04
