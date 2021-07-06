@@ -23,16 +23,16 @@
           <div class="relative inline-block text-left">
             <div>
               <button id="dropdownMenu" class="inline-block">
-                <%= image_tag('https://avatars.githubusercontent.com/u/60761706?v=4', class: 'h-10 w-10 rounded-full ring-2 ring-yellow-200') %>
+                <%= image_tag('https://avatars.githubusercontent.com/u/60761706?v=4', class: 'h-10 w-10 rounded-full ring-2 ring-yellow-400') %>
               </button>
             </div>
-            <div id="dropdownDiv" class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-2 ring-gray-200 ring-opacity-5 divide-y divide-gray-100 focus:outline-none z-40" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+            <div id="dropdownDiv" class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-2 ring-gray-200 ring-opacity-5 divide-y divide-gray-100 focus:outline-none z-40 dark:bg-gray-900 dark:ring-gray-800 dark:divide-gray-700" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
               <div class="p-1" role="none">
-                <span class="text-gray-700 block px-4 py-2 text-sm rounded" role="menuitem" tabindex="-1" id="menu-item-0">Oi, <%= Current.user.name %> 👋🏻!</span>
-                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 rounded" role="menuitem" tabindex="-1" id="menu-item-0">Editar perfil</a>
+                <span class="text-gray-700 block px-4 py-2 text-sm rounded font-bold dark:text-gray-200" role="menuitem" tabindex="-1" id="menu-item-0">Oi, <%= Current.user.name %> 👋🏻!</span>
+                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 rounded dark:text-gray-200 dark:hover:text-gray-300 dark:hover:bg-gray-800" role="menuitem" tabindex="-1" id="menu-item-0">Editar perfil</a>
               </div>
               <div class="p-1" role="none">
-                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 rounded" role="menuitem" tabindex="-1" id="menu-item-2">Dashboard</a>
+                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 rounded dark:text-gray-200 dark:hover:text-gray-300 dark:hover:bg-gray-800" role="menuitem" tabindex="-1" id="menu-item-2">Dashboard</a>
               </div>
               <div class="p-1" role="none">
                 <%= link_to 'Sair', logout_path, method: :delete, class: 'text-red-500 block px-4 py-2 text-sm font-semibold rounded hover:bg-red-500 hover:text-white' %>
@@ -83,8 +83,16 @@
                 <li><%= link_to 'Membros', membros_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
                 <li><%= link_to 'Projetos', projetos_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
                 <li><a href="https://github.com/ColmeiaUDESC" target="_newblank" class="font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300">Github</a></li>
-                <li><%= link_to 'Login', login_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
-                <li><%= link_to 'Cadastre-se', cadastro_path, class: 'inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white rounded bg-gradient-to-r from-yellow-400 to-yellow-500 focus:shadow-outline focus:outline-none hover:via-yellow-400'%></li>
+                <% if Current.user %>
+                  <li><hr class="dark:border-gray-700"></li>
+                  <li><span class="font-bold tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300">Oi, <%= Current.user.name %> 👋🏻!</span></li>
+                  <li><%= link_to 'Editar perfil', root_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
+                  <li><%= link_to 'Dashboard', root_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
+                  <li><%= link_to 'Sair', root_path, class: 'font-medium tracking-wide text-red-500 hover:text-red-600'%></li>
+                <% else %>
+                  <li><%= link_to 'Login', login_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
+                  <li><%= link_to 'Cadastre-se', cadastro_path, class: 'inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white rounded bg-gradient-to-r from-yellow-400 to-yellow-500 focus:shadow-outline focus:outline-none hover:via-yellow-400'%></li>
+                <% end %>
               </ul>
             </nav>
           </div>
