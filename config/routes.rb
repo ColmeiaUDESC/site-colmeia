@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
   # Exemplo: get:'test', to:'test#index'
   # Ler primeiro tópico do docs.md
-    root 'main#index'
+  root 'main#index'
 
-    # CADASTRO
-    get 'cadastro', to: 'cadastro#new'
-    post 'cadastro' , to: 'cadastro#create'
+  # CADASTRO
+  get 'cadastro', to: 'cadastro#new'
+  post 'cadastro' , to: 'cadastro#create'
 
-    # LOGIN
-    get 'login', to: 'sessions#new'
-    post 'login' , to: 'sessions#create'
-    delete 'logout', to: 'sessions#destroy'
-  
-    get 'membros', to: 'membros#index'
+  # LOGIN
+  get 'login', to: 'sessions#new'
+  post 'login' , to: 'sessions#create'
 
-    get 'projetos', to: 'projetos#index'
+  delete 'logout', to: 'sessions#destroy'
+
+
+  get 'membros', to: 'membros#index'
+
+  get 'projetos', to: 'projetos#index'
 end

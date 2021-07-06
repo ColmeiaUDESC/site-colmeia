@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   layout 'login_register'
   
   def new
+    @page_title = 'Colmeia | Login'
   end
 
   def create
