@@ -1,102 +1,103 @@
 <div class="bg-gray-800 dark:bg-gray-900">
-    <div class="container mx-auto px-6 md:px-4 py-5">
-        <div class="relative flex grid items-center grid-cols-2">
-            <%= link_to image_tag('Colmeia.png', class: 'h-10'), root_path, class: 'lg:hidden inline-flex items-center'%>
-            <ul class="flex items-center hidden space-x-8 lg:flex">
-                <li>
-                    <%= link_to 'Início', root_path, :class => current_class?(root_path) %>
-                </li>
-                <li>
-                    <%= link_to 'Membros', membros_path, :class => current_class?(membros_path) %>
-                </li>
-                <li>
-                    <%= link_to 'Projetos', projetos_path, :class => current_class?(projetos_path) %>
-                </li>
-                <li><a href="https://github.com/ColmeiaUDESC" target="_newblank" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded hover:bg-gray-900 focus:shadow-outline focus:outline-none dark:hover:bg-gray-800">Github</a></li>
-            </ul>
-            <%# <a href="/" aria-label="Company" title="Company" class="inline-flex items-center lg:mx-auto">
+  <div class="container mx-auto px-6 md:px-4 py-5">
+    <div class="relative flex grid items-center grid-cols-2">
+      <%= link_to image_tag('Colmeia.png', class: 'h-10'), root_path, class: 'lg:hidden inline-flex items-center'%>
+      <ul class="flex items-center hidden space-x-8 lg:flex">
+        <li>
+          <%= link_to 'Início', root_path, :class => current_class?(root_path) %>
+        </li>
+        <li>
+          <%= link_to 'Membros', membros_path, :class => current_class?(membros_path) %>
+        </li>
+        <li>
+          <%= link_to 'Projetos', projetos_path, :class => current_class?(projetos_path) %>
+        </li>
+        <li><a href="https://github.com/ColmeiaUDESC" target="_newblank" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded hover:bg-gray-900 focus:shadow-outline focus:outline-none dark:hover:bg-gray-800">Github</a></li>
+      </ul>
+      <%# <a href="/" aria-label="Company" title="Company" class="inline-flex items-center lg:mx-auto">
         <%= image_tag "Colmeia.png", class: "h-12" 
       </a>
       %>
-            <ul class="flex items-center hidden ml-auto space-x-8 lg:flex">
-                <% if Current.user %>
-                <div class="relative inline-block text-left">
-                    <div>
-                        <button id="dropdownMenu" class="inline-block">
-                            <%= image_tag('https://avatars.githubusercontent.com/u/60761706?v=4', class: 'h-10 w-10 rounded-full ring-2 ring-yellow-400') %>
-                        </button>
-                    </div>
-                    <div id="dropdownDiv" class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-2 ring-gray-200 ring-opacity-5 divide-y divide-gray-100 focus:outline-none z-40 dark:bg-gray-900 dark:ring-gray-800 dark:divide-gray-700" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                        <div class="p-1" role="none">
-                            <span class="text-gray-700 block px-4 py-2 text-sm rounded font-bold dark:text-gray-200" role="menuitem" tabindex="-1" id="menu-item-0">Oi, <%= Current.user.name %> 👋🏻!</span>
-                            <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 rounded dark:text-gray-200 dark:hover:text-gray-300 dark:hover:bg-gray-800" role="menuitem" tabindex="-1" id="menu-item-0">Editar perfil</a>
-                        </div>
-                        <div class="p-1" role="none">
-                            <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 rounded dark:text-gray-200 dark:hover:text-gray-300 dark:hover:bg-gray-800" role="menuitem" tabindex="-1" id="menu-item-2">Dashboard</a>
-                        </div>
-                        <div class="p-1" role="none">
-                            <%= link_to 'Sair', logout_path, method: :delete, class: 'text-red-500 block px-4 py-2 text-sm font-semibold rounded hover:bg-red-500 hover:text-white' %>
-                        </div>
-                    </div>
-                </div>
-                <% else %>
-                <li>
-                    <%= link_to 'Login', login_path, class: 'inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded hover:bg-gray-900 focus:shadow-outline focus:outline-none dark:hover:bg-gray-800' %>
-                </li>
-                <li>
-                    <%= link_to 'Cadastre-se', cadastro_path, class: 'inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded bg-gradient-to-r from-yellow-400 to-yellow-500 focus:shadow-outline focus:outline-none hover:via-yellow-400' %>
-                </li>
-                <% end %>
-            </ul>
-            <div class="ml-auto lg:hidden">
-                <button id="mobileMenuOpen" aria-label="Open Menu" title="Open Menu" class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline">
-                    <svg class="w-5 text-gray-100" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"></path>
-                        <path fill="currentColor" d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"></path>
-                        <path fill="currentColor" d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"></path>
-                    </svg>
-                </button>
-
-                <%# mobile menu %>
-                <div id="mobileMenuDiv" class="absolute top-0 left-0 w-full hidden z-40">
-                    <div class="p-5 bg-white border rounded shadow-md dark:bg-gray-800 dark:border-gray-700">
-                        <div class="flex items-center justify-between mb-4">
-                            <div>
-                                <%= link_to image_tag('Colmeia.png', class: 'h-8'), root_path, class: 'inline-flex items-center'%>
-                            </div>
-                            <div>
-                                <button id="mobileMenuClose" class="p-2 -mt-2 -mr-2 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline dark:hover:bg-gray-900">
-                                    <svg class="w-5 text-gray-600 dark:text-gray-200" viewBox="0 0 24 24">
-                                        <path fill="currentColor" d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <nav>
-                            <ul class="space-y-4">
-                                <li>
-                                    <%= link_to 'Início', root_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%>
-                                </li>
-                                <li><%= link_to 'Membros', membros_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
-                                <li><%= link_to 'Projetos', projetos_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
-                                <li><a href="https://github.com/ColmeiaUDESC" target="_newblank" class="font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300">Github</a></li>
-                                <% if Current.user %>
-                                <li>
-                                    <hr class="dark:border-gray-700">
-                                </li>
-                                <li><span class="font-bold tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300">Oi, <%= Current.user.name %> 👋🏻!</span></li>
-                                <li><%= link_to 'Editar perfil', root_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
-                                <li><%= link_to 'Dashboard', root_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
-                                <li><%= link_to 'Sair', root_path, class: 'font-medium tracking-wide text-red-500 hover:text-red-600'%></li>
-                                <% else %>
-                                <li><%= link_to 'Login', login_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
-                                <li><%= link_to 'Cadastre-se', cadastro_path, class: 'inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white rounded bg-gradient-to-r from-yellow-400 to-yellow-500 focus:shadow-outline focus:outline-none hover:via-yellow-400'%></li>
-                                <% end %>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+      <ul class="flex items-center hidden ml-auto space-x-8 lg:flex">
+        <% if Current.user %>
+          <div class="relative inline-block text-left">
+            <div>
+              <button id="dropdownMenu" class="inline-block">
+                <%= image_tag('https://avatars.githubusercontent.com/u/60761706?v=4', class: 'h-10 w-10 rounded-full ring-2 ring-yellow-400') %>
+              </button>
             </div>
+            <div id="dropdownDiv" class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-2 ring-gray-200 ring-opacity-5 divide-y divide-gray-100 focus:outline-none z-40 dark:bg-gray-900 dark:ring-gray-800 dark:divide-gray-700" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+              <div class="p-1" role="none">
+                <span class="text-gray-700 block px-4 py-2 text-sm rounded font-bold dark:text-gray-200" role="menuitem" tabindex="-1" id="menu-item-0">Oi, <%= Current.user.name %> 👋🏻!</span>
+                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 rounded dark:text-gray-200 dark:hover:text-gray-300 dark:hover:bg-gray-800" role="menuitem" tabindex="-1" id="menu-item-0">Editar perfil</a>
+              </div>
+              <div class="p-1" role="none">
+                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 rounded dark:text-gray-200 dark:hover:text-gray-300 dark:hover:bg-gray-800" role="menuitem" tabindex="-1" id="menu-item-2">Dashboard</a>
+              </div>
+              <div class="p-1" role="none">
+                <%= link_to 'Sair', logout_path, method: :delete, class: 'text-red-500 block px-4 py-2 text-sm font-semibold rounded hover:bg-red-500 hover:text-white' %>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <li>
+            <%= link_to 'Login', login_path, class: 'inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded hover:bg-gray-900 focus:shadow-outline focus:outline-none dark:hover:bg-gray-800' %>
+          </li>
+          <li>
+            <%= link_to 'Cadastre-se', cadastro_path, class: 'inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded bg-gradient-to-r from-yellow-400 to-yellow-500 focus:shadow-outline focus:outline-none hover:via-yellow-400' %>
+          </li>
+        <% end %>
+      </ul>
+      <div class="ml-auto lg:hidden">
+        <button id="mobileMenuOpen" aria-label="Open Menu" title="Open Menu" class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline">
+          <svg class="w-5 text-gray-100" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"></path>
+            <path fill="currentColor" d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"></path>
+            <path fill="currentColor" d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"></path>
+          </svg>
+        </button>
+
+        <%# mobile menu %>
+        <div id="mobileMenuDiv" class="absolute top-0 left-0 w-full hidden z-40">
+          <div class="p-5 bg-white border rounded shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <%= link_to image_tag('Colmeia.png', class: 'h-8'), root_path, class: 'inline-flex items-center'%>
+              </div>
+              <div>
+                <button id="mobileMenuClose" class="p-2 -mt-2 -mr-2 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline dark:hover:bg-gray-900">
+                  <svg class="w-5 text-gray-600 dark:text-gray-200" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <nav>
+              <ul class="space-y-4">
+                <li>
+                  <%= link_to 'Início', root_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%>
+                </li>
+                <li><%= link_to 'Membros', membros_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
+                <li><%= link_to 'Projetos', projetos_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
+                <li><a href="https://github.com/ColmeiaUDESC" target="_newblank" class="font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300">Github</a></li>
+                <% if Current.user %>
+                  <li><hr class="dark:border-gray-700"></li>
+                  <li><span class="font-bold tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300">Oi, <%= Current.user.name %> 👋🏻!</span></li>
+                  <li><%= link_to 'Editar perfil', root_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
+                  <li><%= link_to 'Dashboard', root_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
+                  <li><%= link_to 'Sair', root_path, class: 'font-medium tracking-wide text-red-500 hover:text-red-600'%></li>
+                <% else %>
+                  <li><%= link_to 'Login', login_path, class: 'font-medium tracking-wide text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300'%></li>
+                  <li><%= link_to 'Cadastre-se', cadastro_path, class: 'inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white rounded bg-gradient-to-r from-yellow-400 to-yellow-500 focus:shadow-outline focus:outline-none hover:via-yellow-400'%></li>
+                <% end %>
+              </ul>
+            </nav>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
