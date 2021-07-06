@@ -1,0 +1,57 @@
+<div class="flex h-20 bg-gray-100 w-full lg:hidden px-10 justify-between items-center">
+  <%= image_tag 'Colmeia.png', class: 'h-12' %>
+  <button id="mobileMenuOpen" aria-label="Open Menu" title="Open Menu" class="p-2 -mr-1 rounded focus:outline-none focus:shadow-outline focus:bg-gray-200">
+    <svg class="w-5 text-gray-800" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"></path>
+      <path fill="currentColor" d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"></path>
+      <path fill="currentColor" d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"></path>
+    </svg>
+  </button>
+</div>
+
+<div id="mobileMenuDiv" class="w-72 shadow-lg bg-gray-100 block p-10 absolute inset-y-0 left-0 transform -translate-x-full lg:relative lg:translate-x-0 lg:shadow-none transition duration-200 ease-in-out">
+  <%= image_tag 'Colmeia.png', class: 'h-12 mx-auto' %>
+  <ul class="mt-10 space-y-5">
+    <li class="flex w-full justify-between text-gray-800 font-bold">
+      <%= link_to dashboard_path, class: 'flex items-center' do %>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+        </svg>
+        <span class="ml-2">Início</span>
+      <% end %>
+    </li>
+    <li class="flex w-full justify-between text-gray-700">
+      <a href="#" class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+          <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
+        </svg>
+        <span class="ml-2">Criar post</span>
+      </a>
+    </li>
+    <li class="flex w-full justify-between text-gray-700">
+      <a href="#" class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+        </svg>
+        <span class="ml-2">Listar posts</span>
+      </a>
+    </li>
+    <li class="flex w-full justify-between text-gray-700">
+      <a href="#" class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <span class="ml-2">Listar usuários</span>
+      </a>
+    </li>
+    <li class="flex w-full justify-between text-yellow-500 font-semibold">
+      <%= link_to root_path, class: 'flex items-center' do %>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+        </svg>
+        <span class="ml-2">Voltar ao site</span>
+      <% end %>
+    </li>
+  </ul>
+</div>
