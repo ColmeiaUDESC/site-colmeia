@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   get 'projetos', to: 'projetos#index'
 
   get 'dashboard', to: 'dashboard#index'
+
+  resources :posts, except: [:index]
+  get 'posts/pag/:pag', to: 'posts#index', as: 'posts_pag'
 end

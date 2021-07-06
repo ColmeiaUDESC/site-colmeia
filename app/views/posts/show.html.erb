@@ -1,0 +1,7 @@
+
+<% # Fazer tailwind do titulo %>
+<p class="text-3xl font-bold text-gray-700 dark:text-gray-200"><%= @post.title %></p>
+<p class="mt-2 text-gray-700 dark:text-gray-200">Escrito por <%= @post.users_name %> em <%= @post.created_at %>.</p>
+<%= sanitize @post.html %>
+
+
