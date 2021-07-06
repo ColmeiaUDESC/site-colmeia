@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   delete 'logout', to: 'sessions#destroy'
 
+
   get 'membros', to: 'membros#index'
 
   get 'projetos', to: 'projetos#index'
