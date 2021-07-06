@@ -16,7 +16,6 @@ Exemplo:
 get:'test', to:'test#index'
 ```
 
-
 ## Conflitos ao rodar o postgres no docker?
 
 Muitos de nós começamos a ter problemas ao rodar o docker após ter iniciado o postgres na máquina local, para resolver este problema é só utilizar o comando:
@@ -31,3 +30,16 @@ Este comando para o serviço do postgres e impede que o erro aconteça. Caso que
 sudo update-rc.d postgresql disable
 ```
 
+## Popular o banco de dados através de seeds!
+
+Para adicionar os valores no banco de dados antes da primeira execução pode se usar o comando
+
+```
+rails db:seed
+```
+
+Respeitando obviamente o ambiente seja ele local ou docker.
+
+### Adicionar novos valores no seed:
+
+Para adicionar novos componentes aos bancos de dados deve se alterar o arquivo `db/seeds.rb`, ele aceita comandos como no console rails (este pode ser executado através do comando `rails c`)

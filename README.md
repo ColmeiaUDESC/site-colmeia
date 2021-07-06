@@ -1,6 +1,6 @@
 # Site da Colmeia UDESC
 
-Neste repositório se encontra o código fonte do website da Colmeia UDESC, um projeto de extensão dedicado na disseeminação do uso de Hardware e Software Livre. O site foi feito usando Ruby on Rails e Docker 
+Neste repositório se encontra o código fonte do website da Colmeia UDESC, um projeto de extensão dedicado na disseeminação do uso de Hardware e Software Livre. O site foi feito usando Ruby on Rails e Docker
 
 ## Tabela de Conteúdos
 
@@ -21,15 +21,15 @@ Neste repositório se encontra o código fonte do website da Colmeia UDESC, um p
 
 O projeto possui as seguintes dependências:
 
-* Instalação com Docker
-  * [Docker](https://docs.docker.com/get-docker/)
-  * [Docker Compose](https://docs.docker.com/compose/install/)
-* Instalação manual
-  * [Ruby 3.0.1](https://www.ruby-lang.org/en/downloads/)
-  * [Ruby on Rails](https://guides.rubyonrails.org/v5.0/getting_started.html#installing-rails)
-  * [PostgreSQL 12](https://www.postgresql.org/download/)
-  * [Node.Js](https://nodejs.org/en/)
-  * [Yarn](https://yarnpkg.com/getting-started/install)
+- Instalação com Docker
+  - [Docker](https://docs.docker.com/get-docker/)
+  - [Docker Compose](https://docs.docker.com/compose/install/)
+- Instalação manual
+  - [Ruby 3.0.1](https://www.ruby-lang.org/en/downloads/)
+  - [Ruby on Rails](https://guides.rubyonrails.org/v5.0/getting_started.html#installing-rails)
+  - [PostgreSQL 12](https://www.postgresql.org/download/)
+  - [Node.Js](https://nodejs.org/en/)
+  - [Yarn](https://yarnpkg.com/getting-started/install)
 
 ## Instalação
 
@@ -43,6 +43,7 @@ Vá para o diretório do projeto e execute:
 
 ```sh
 sudo docker-compose run web rails db:create
+sudo docker-compose run web rails db:seed
 sudo docker-compose up
 ```
 
@@ -74,7 +75,7 @@ bin/rails server
 
 A produção desse site foi graças a todos que contribuiram com o projeto! Muito obrigado a esses contribuintes:
 
-* [Luciano Wayand](https://github.com/lucianowayand)
-* [Gabriel Junkes](https://github.com/GabrielFJunkes)
-* [João Dematte](https://github.com/joaodematte)
-* [Kawan Weege](https://github.com/DragonOfWar)
+- [Luciano Wayand](https://github.com/lucianowayand)
+- [Gabriel Junkes](https://github.com/GabrielFJunkes)
+- [João Dematte](https://github.com/joaodematte)
+- [Kawan Weege](https://github.com/DragonOfWar)
