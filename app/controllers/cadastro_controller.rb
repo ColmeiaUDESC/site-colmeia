@@ -1,4 +1,6 @@
 class CadastroController < ApplicationController
+  layout 'login_register'
+  
     def index
         @user = User.new
         render layout: 'login_register'
