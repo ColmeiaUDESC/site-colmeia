@@ -15,3 +15,19 @@ Exemplo:
 ```ruby
 get:'test', to:'test#index'
 ```
+
+
+## Conflitos ao rodar o postgres no docker?
+
+Muitos de nós começamos a ter problemas ao rodar o docker após ter iniciado o postgres na máquina local, para resolver este problema é só utilizar o comando:
+
+```
+sudo service postgresql stop
+```
+
+Este comando para o serviço do postgres e impede que o erro aconteça. Caso queira desativar de maneira permanente este erro você pode desativar o postgres completamente através do comando:
+
+```
+sudo update-rc.d postgresql disable
+```
+

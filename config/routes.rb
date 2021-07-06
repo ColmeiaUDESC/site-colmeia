@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'main#index'
+  # Exemplo: get:'test', to:'test#index'
+  # Ler primeiro tópico do docs.md
+    root 'main#index'
 
-  get 'login', to: 'login#index'
+    # SIGN_UP
+    get "cadastro", to: "cadastro#new"
+    post "cadastro" , to: "cadastro#create"
+
+    # SIGN_IN
+    get "entre", to: "entre#new"
+    post "entre" , to: "entre#create"
   
-  get 'cadastro', to: 'cadastro#index'
+    get 'membros', to: 'membros#index'
 
-  get 'membros', to: 'membros#index'
-
-  get 'projetos', to: 'projetos#index'
+    get 'projetos', to: 'projetos#index'
 end
