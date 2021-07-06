@@ -1,4 +1,8 @@
 class CadastroController < ApplicationController
+    def new
+        @user = User.new
+    end 
+
     def index
         @user = User.new
         render layout: 'login_register'
@@ -10,7 +14,7 @@ class CadastroController < ApplicationController
         if @user.save
             redirect_to root_path, notice: "Conta criada com sucesso"
         else
-            render :new
+            redirect_to cadastro_url, error: @user.errors.full_messages
         end
     end
 
