@@ -24,7 +24,7 @@
     <%
     # Pega os ultimos 3 posts e inverte para que o primeiro seja o mais atual
     @posts = Post.order("created_at ASC").last(3).reverse()
-    if @posts
+    if @posts!=[]
       @posts.each do | post |
         %>
         <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">

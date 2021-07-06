@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <% # For loop para dar print em cada post 
-if @posts
+if @posts!=[]
 %>
 <% @posts.each do |post| %>
   <%= link_to post.title, post_path(id: post.id), :class =>"text-3xl font-bold text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300"%>
@@ -10,9 +10,7 @@ if @posts
   <% # Fazer botao para levar ao post  post/id %>
 <% end 
 else %>
-  <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
     <h1 class="text-2xl font-bold text-gray-700 dark:text-gray-200">Que pena, não há posts 😞</h1>
-  </div>
 <% end %>
 
 <%= link_to 'New Post', new_post_path %><% #Tirar esse caminho quando tiver autenticacao 
