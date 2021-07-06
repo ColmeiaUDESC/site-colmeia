@@ -3,13 +3,14 @@ Rails.application.routes.draw do
   # Ler primeiro tópico do docs.md
     root 'main#index'
 
-    # SIGN_UP
-    get "cadastro", to: "cadastro#new"
-    post "cadastro" , to: "cadastro#create"
+    # CADASTRO
+    get 'cadastro', to: 'cadastro#new'
+    post 'cadastro' , to: 'cadastro#create'
 
-    # SIGN_IN
-    get "sessions", to: "sessions#new"
-    post "sessions" , to: "sessions#create"
+    # LOGIN
+    get 'login', to: 'sessions#new'
+    post 'login' , to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
   
     get 'membros', to: 'membros#index'
 
