@@ -1,5 +1,6 @@
 class MembrosController < ApplicationController
   def index
+    @page_title = 'Colmeia | Membros'
     @membros = []
 
     User.all.each do |user|
