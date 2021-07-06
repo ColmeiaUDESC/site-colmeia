@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # Exemplo: get:'test', to:'test#index'
   # Ler primeiro tópico do docs.md
+  
     root 'main#index'
 
     # SIGN_UP
@@ -8,10 +9,7 @@ Rails.application.routes.draw do
     post "cadastro" , to: "cadastro#create"
 
     # SIGN_IN
-    get "entre", to: "entre#new"
+    get "entre", to: "entre#new" 
     post "entre" , to: "entre#create"
-  
-    get 'membros', to: 'membros#index'
 
-    get 'projetos', to: 'projetos#index'
 end
