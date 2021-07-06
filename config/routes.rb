@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     post "cadastro" , to: "cadastro#create"
 
     # SIGN_IN
-    get "entre", to: "entre#new"
-    post "entre" , to: "entre#create"
+    get "sessions", to: "sessions#new"
+    post "sessions" , to: "sessions#create"
   
     get 'membros', to: 'membros#index'
 
