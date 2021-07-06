@@ -1,12 +1,16 @@
 class CadastroController < ApplicationController
-  layout 'login_register'
-  
+    layout 'login_register'
+    
     def index
-      @user = User.new
+        @user = User.new
     end
-
+    
     def new
-      @page_title = 'Colmeia | Cadastro'
+        @page_title = 'Colmeia | Cadastro'
+        # Redireciona o usuario para root se estiver logado
+        if session[:user_id]
+            redirect_to root_path
+        end
     end
 
     def create
