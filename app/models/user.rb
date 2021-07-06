@@ -15,6 +15,6 @@ class User < ApplicationRecord
     # Deste modo não existe forma de acesso a senha diretamente e garantimos assim a segurança das informações do usuário
 
     validates :name, presence: true
-    validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'Email em formato inválido' }
+    validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'em formato inválido' }
 
 end
