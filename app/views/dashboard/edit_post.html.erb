@@ -4,7 +4,7 @@
 
 <div>
   <h1 class="text-2xl text-gray-700 font-bold">
-    Edição da postagem ID: <span class="bg-yellow-400 text-yellow-700 px-2 py-1 font-bold uppercase rounded"><%= params[:id] %></span>
+    Edição da postagem ID: <span class="bg-yellow-400 text-yellow-700 px-2 py-1 font-bold uppercase rounded"><%= @post.id %></span>
   </h1>
   <%= form_with url: post_update_path(id: params[:id]), method: 'put', class: 'mt-10' do |form| %>
     <div class="mb-4">

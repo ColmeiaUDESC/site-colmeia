@@ -1,0 +1,61 @@
+<%
+  @user = User.find(params[:id])
+%>
+
+<div>
+  <h1 class="text-2xl text-gray-700 font-bold">
+    Edição da usuário ID: <span class="bg-yellow-400 text-yellow-700 px-2 py-1 font-bold uppercase rounded"><%= @user.id %></span>
+  </h1>
+  <%= form_with url: post_update_path(id: params[:id]), method: 'put', class: 'mt-10' do |form| %>
+    <div class="mb-4">
+      <%= form.label :nome, 'Nome do usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_field :nome, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+        value: @user.nome %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :sobrenome, 'Sobrenome do usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_field :sobrenome, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+        value: @user.sobrenome %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :email, 'Email do usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_field :email, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+        value: @user.email %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :situacao, 'Situação do usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.select(:situacao, [['Visitante', 'Visitante'], ['Trainee', 'Trainee'], ['Voluntário', 'Voluntário'], ['Bolsista', 'Bolsista']], {}, { class: 'shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600' }) %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :imagem_url, 'Avatar do usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_field :imagem_url, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+        value: @user.imagem_url %>
+    </div>
+
+    <% if @user.situacao != 'Visitante' %>
+      <div class="mb-4">
+        <%= form.label :github_username, 'Github do usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+        <%= form.text_field :github_username, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+          value: @user.github_username %>
+      </div>
+      <div class="mb-4">
+        <%= form.label :twitter_username, 'Twitter do usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+        <%= form.text_field :twitter_username, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+          value: @user.twitter_username %>
+      </div>
+      <div class="mb-4">
+        <%= form.label :instagram_username, 'Instagram do usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+        <%= form.text_field :instagram_username, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+          value: @user.instagram_username %>
+      </div>
+      <div class="mb-4">
+        <%= form.label :discord_username, 'Discord ID do usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+        <%= form.text_field :discord_username, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+          value: @user.discord_username %>
+      </div>
+    <% end %>
+
+
+    <%= form.submit "Salvar edições", class: 'bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer' %>
+  <% end %>
+</div>

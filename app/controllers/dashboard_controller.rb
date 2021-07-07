@@ -17,7 +17,15 @@ class DashboardController < ApplicationController
       @page_title = 'Colmeia | Nova postagem'
     end
 
+    def edit_post
+      @page_title = 'Colmeia | Edição de posts'
+    end
+
     def list_users
       @page_title = 'Colmeia | Listagem de usuários'
+    end
+
+    def edit_user
+      @page_title = 'Colmeia | Edição de usuários'
     end
 end
