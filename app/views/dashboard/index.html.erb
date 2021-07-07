@@ -1,1 +1,58 @@
-<h1 class="text-2xl text-gray-700">Dashboard</h1>
+<%
+  @posts_count = Post.count
+  @users_count = User.count
+
+  @members_count = @users_count - (User.where(:situacao => 'Visitante').count)
+
+%>
+
+<div>
+  <h1 class="text-2xl text-gray-700 font-bold">Dashboard</h1>
+  <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 gap-4 mt-10">
+    <div class="flex justify-between items-center h-36 bg-green-300 py-5 px-5 rounded border-4 border-green-400">
+      <div class="bg-green-800 text-green-300 rounded p-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 lg:h-12 lg:w-12" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+          <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-green-800 font-bold ml-auto text-sm">Posts criados</span>
+        <span class="text-green-800 font-bold text-6xl ml-auto"><%= @posts_count %></span>
+      </div>
+    </div>
+    <div class="flex justify-between items-center h-36 bg-yellow-300 py-5 px-5 rounded border-4 border-yellow-400">
+      <div class="bg-yellow-800 text-yellow-300 rounded p-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 lg:h-12 lg:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-yellow-800 font-bold ml-auto text-sm">Usuários cadastrados</span>
+        <span class="text-yellow-800 font-bold text-6xl ml-auto"><%= @users_count %></span>
+      </div>
+    </div>
+    <div class="flex justify-between items-center h-36 bg-indigo-300 py-5 px-5 rounded border-4 border-indigo-400">
+      <div class="bg-indigo-800 text-indigo-300 rounded p-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 lg:h-12 lg:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+        </svg>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-indigo-800 font-bold ml-auto text-sm">Projetos cadastrados</span>
+        <span class="text-indigo-800 font-bold text-6xl ml-auto">null</span>
+      </div>
+    </div>
+    <div class="flex justify-between items-center h-36 bg-blue-300 py-5 px-5 rounded border-4 border-blue-400">
+      <div class="bg-blue-800 text-blue-300 rounded p-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 lg:h-12 lg:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-blue-800 font-bold ml-auto text-sm">Membros cadastrados</span>
+        <span class="text-blue-800 font-bold text-6xl ml-auto"><%= @members_count %></span>
+      </div>
+    </div>
+  </div>
+</div>

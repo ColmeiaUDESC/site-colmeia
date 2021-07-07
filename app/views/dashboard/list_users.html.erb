@@ -1,0 +1,63 @@
+<div>
+  <h1 class="text-2xl text-gray-700 font-bold">Listagem de usuários</h1>
+  <div class="mt-10">
+    <div class="flex flex-col">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Nome e sobrenome
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Email
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Situação
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Data de criação
+                  </th>
+                  <th scope="col" class="relative px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <span class="sr-only">Editar</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y">
+                <% @users = User.order("created_at ASC").last(15).reverse() %>
+                  <% @users.each do |user| %>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <span class="text-sm font-medium text-gray-900"><%= user.name %></span>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900"><%= user.email %></div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <% if user.situacao != 'Visitante' %>
+                          <span class="bg-yellow-400 text-yellow-700 px-2 py-1 font-bold text-sm uppercase rounded"><%= user.situacao %></span>
+                        <% else %>
+                          <span class="bg-gray-200 text-gray-700 px-2 py-1 font-bold text-sm uppercase rounded"><%= user.situacao %></span>
+                        <% end %>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="text-sm text-gray-900"><%= user.created_at %></span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <a href="#" class="text-gray-700 hover:text-gray-800 mr-2">Editar</a>
+                        <a href="#" class="text-red-600 hover:text-red-700">Excluir</a>
+                      </td>
+                    </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
