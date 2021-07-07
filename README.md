@@ -43,6 +43,7 @@ Vá para o diretório do projeto e execute:
 
 ```sh
 sudo docker-compose run web rails db:create
+sudo docker-compose run web rails db:migrate
 sudo docker-compose run web rails db:seed
 sudo docker-compose up
 ```
