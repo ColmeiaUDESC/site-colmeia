@@ -8,6 +8,8 @@ class AddCamposToUsers < ActiveRecord::Migration[6.1]
     add_column :users, :imagem_url, :string
     remove_column :users, :situacao
     add_column :users, :situacao, :string, null: false, default: 'Visitante'
+    remove_column :users, :name
+    add_column :users, :nome, :string, null: false
 
   end
 end

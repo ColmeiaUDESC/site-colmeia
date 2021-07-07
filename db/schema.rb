@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2021_07_07_154615) do
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest"
-    t.string "name", null: false
     t.date "data_de_inicio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -39,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_07_07_154615) do
     t.string "discord_username"
     t.string "imagem_url"
     t.string "situacao", default: "Visitante", null: false
+    t.string "nome", null: false
   end
 
 end
