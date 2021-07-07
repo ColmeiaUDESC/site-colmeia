@@ -23,8 +23,10 @@ Rails.application.routes.draw do
   get 'dashboard/posts/:id/edit', to: 'dashboard#edit_post', as: 'edit_post'
   get 'dashboard/users', to: 'dashboard#list_users'
 
-  resources :posts, except: [:index, :update, :destroy]
-  get 'posts/pag/:pag', to: 'posts#index', as: 'posts_pag'
-  put 'posts/:id', to: 'posts#update', as: 'post_update'
-  delete 'posts/:id', to: 'posts#destroy', as: 'post_destroy'
+  # Posts
+  post 'blog', to: 'posts#create', as: 'posts'
+  get 'blog/:id', to: 'posts#show', as: 'post'
+  get 'blog/p/:pag', to: 'posts#index', as: 'posts_pag'
+  put 'blog/:id', to: 'posts#update', as: 'post_update'
+  delete 'blog/:id', to: 'posts#destroy', as: 'post_destroy'
 end
