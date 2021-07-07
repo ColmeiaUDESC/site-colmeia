@@ -1,5 +1,7 @@
 let githubApi = async () => {
   const githubContainer = document.getElementById('githubContainer');
+  
+  githubContainer.innerHTML = "";
 
   fetch('https://api.github.com/repos/ColmeiaUDESC/site-colmeia/contributors')
     .then(response => response.json())

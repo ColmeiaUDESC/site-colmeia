@@ -20,7 +20,7 @@
         <span class="ml-2">Início</span>
       </li>
     <% end %>
-    <%= link_to '/dashboard/posts/new', :class => current_sidebar_class?('/dashboard/posts/new') do %>
+    <%= link_to dashboard_posts_new_path, :class => current_sidebar_class?(dashboard_posts_new_path) do %>
       <li class="flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
@@ -29,7 +29,7 @@
         <span class="ml-2">Criar post</span>
       </li>
     <% end %>
-    <%= link_to '/dashboard/posts', :class => current_sidebar_class?('/dashboard/posts') do %>
+    <%= link_to dashboard_posts_path, :class => current_sidebar_class?(dashboard_posts_path) do %>
       <li class="flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
@@ -37,7 +37,7 @@
         <span class="ml-2">Listar posts</span>
       </li>
     <% end %>
-    <%= link_to '/dashboard/users', :class => current_sidebar_class?('/dashboard/users') do %>
+    <%= link_to dashboard_users_path, :class => current_sidebar_class?(dashboard_users_path) do %>
       <li class="flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
