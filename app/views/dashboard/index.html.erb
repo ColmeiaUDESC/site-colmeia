@@ -1,3 +1,11 @@
+<%
+  @posts_count = Post.count
+  @users_count = User.count
+
+  @members_count = @users_count - (User.where(:situacao => 'Visitante').count)
+
+%>
+
 <div>
   <h1 class="text-2xl text-gray-700 font-bold">Dashboard</h1>
   <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 gap-4 mt-10">
@@ -8,9 +16,9 @@
           <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
         </svg>
       </div>
-      <div>
-        <span class="block text-green-800 font-bold ml-auto text-sm">Posts criados</span>
-        <span class="block text-green-800 font-bold text-6xl ml-auto">18</span>
+      <div class="flex flex-col">
+        <span class="text-green-800 font-bold ml-auto text-sm">Posts criados</span>
+        <span class="text-green-800 font-bold text-6xl ml-auto"><%= @posts_count %></span>
       </div>
     </div>
     <div class="flex justify-between items-center h-36 bg-yellow-300 py-5 px-5 rounded border-4 border-yellow-400">
@@ -21,7 +29,7 @@
       </div>
       <div class="flex flex-col">
         <span class="text-yellow-800 font-bold ml-auto text-sm">Usuários cadastrados</span>
-        <span class="text-yellow-800 font-bold text-6xl ml-auto">324</span>
+        <span class="text-yellow-800 font-bold text-6xl ml-auto"><%= @users_count %></span>
       </div>
     </div>
     <div class="flex justify-between items-center h-36 bg-indigo-300 py-5 px-5 rounded border-4 border-indigo-400">
@@ -32,7 +40,7 @@
       </div>
       <div class="flex flex-col">
         <span class="text-indigo-800 font-bold ml-auto text-sm">Projetos cadastrados</span>
-        <span class="text-indigo-800 font-bold text-6xl ml-auto">4</span>
+        <span class="text-indigo-800 font-bold text-6xl ml-auto">null</span>
       </div>
     </div>
     <div class="flex justify-between items-center h-36 bg-blue-300 py-5 px-5 rounded border-4 border-blue-400">
@@ -43,7 +51,7 @@
       </div>
       <div class="flex flex-col">
         <span class="text-blue-800 font-bold ml-auto text-sm">Membros cadastrados</span>
-        <span class="text-blue-800 font-bold text-6xl ml-auto">8</span>
+        <span class="text-blue-800 font-bold text-6xl ml-auto"><%= @members_count %></span>
       </div>
     </div>
   </div>
