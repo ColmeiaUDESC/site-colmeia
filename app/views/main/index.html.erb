@@ -37,7 +37,7 @@
             <hr class="dark:border-gray-700">
           </div>
           <div class="flex justify-end mt-10">
-            <%= button_to "Continue lendo ->", post_path(id: post.id), :class => "font-medium p-4 bg-gray-700 text-white rounded hover:bg-gray-800", :method => :get %>
+            <%= link_to "Continue lendo ->", post_path(id: post.id), :class => "font-medium p-4 bg-gray-700 text-white rounded hover:bg-gray-800" %>
           </div>
         </div>
         <%
