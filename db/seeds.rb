@@ -12,11 +12,11 @@
 # Segue abaixo como exemplo o usuário admin, este que tem acesso aos privilégios de bolsistas e pode ser usado para teste de funcionalidades
 
 #Lembrando que o modelo de usuário possui os seguintes campos
-#name:string (Obrigatório)
+#nome:string (Obrigatório)
 #sobrenome:string (Obrigatório)
 #email:string (Obrigatório)
 #password_digest:string (Deve ser passado como password ou password+password_confirmation)
 #situacao:string
 #data_de_inicio:date
 
-User.create(name:"admin", sobrenome:"admin", email:"admin@admin", password:"DevEnv", situacao:"Bolsista")
+User.create(nome:"admin", sobrenome:"admin", email:"admin@admin.com", password:"DevEnv", situacao:"Bolsista")

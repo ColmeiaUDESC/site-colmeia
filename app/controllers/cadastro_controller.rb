@@ -21,6 +21,6 @@ class CadastroController < ApplicationController
     end
 
     def user_params
-      params.permit(:email, :password, :password_confirmation, :name, :sobrenome)
+      params.permit(:nome, :sobrenome, :email, :password, :password_confirmation)
     end
 end
