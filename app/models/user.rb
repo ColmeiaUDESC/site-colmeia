@@ -1,6 +1,7 @@
 ### O modelo user possui:
 
 #name:string
+#sobrenome:string
 #email:string
 #password_digest:string
 #situacao:string
@@ -15,6 +16,7 @@ class User < ApplicationRecord
     # Deste modo não existe forma de acesso a senha diretamente e garantimos assim a segurança das informações do usuário
 
     validates :name, presence: true
+    validates :sobrenome, presence: true
     validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'em formato inválido' }
 
 end

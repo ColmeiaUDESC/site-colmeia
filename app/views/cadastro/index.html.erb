@@ -1,31 +1,35 @@
 <div class="bg-gray-100 max-w-md w-full rounded shadow p-10 dark:bg-gray-800">
-  <%= image_tag "Colmeia.png", class: "h-12 mx-auto" %>
-  <%= form_with model: @user, url:cadastro_path, class: 'mt-10' do |form| %>
-    <div class="mb-4">
-      <div class="flex space-x-4">
-        <div>
-          <%= form.label :nome, "Nome", class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-          <%= form.text_field :nome, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600', placeholder: "Nome" %>
+    <%= link_to image_tag('Colmeia.png', class: 'h-12 mx-auto'), root_path %>
+    <div class="mt-10">
+        <%= form_with model: @user, url:cadastro_path do |form| %>
+        <div class="mb-4">
+            <div class="flex space-x-4">
+                <div>
+                    <%= form.label :name, "Nome", class:"block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" %>
+                    <%= form.text_field :name, placeholder:"Nome", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" %>
+                </div>
+                <div>
+                    <%= form.label :sobrenome, "Sobrenome", class:"block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" %>
+                    <%= form.text_field :sobrenome, placeholder:"Sobrenome", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" %>
+                </div>
+            </div>
         </div>
-        <div>
-          <%= form.label :sobrenome, "Sobrenome", class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-          <%= form.text_field :sobrenome, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600', placeholder: "Sobrenome" %>
+        <div class="mb-4">
+            <%= form.label :email, "Email", class:"block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" %>
+            <%= form.email_field :email, placeholder:"Email", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" %>
         </div>
-      </div>
+        <div class="mb-4">
+            <%= form.label :password, "Senha", class:"block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" %>
+            <%= form.password_field :password, placeholder:"********", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" %>
+        </div>
+        <div class="mb-4">
+            <%= form.label :password_confirmation, "Confirmação de Senha", class:"block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" %>
+            <%= form.password_field :password_confirmation, placeholder:"********", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" %>
+        </div>
+        <div class="mb-4">
+            <%= form.submit "Enviar", class:"bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"%>
+        </div>
+        <%= link_to '<- Ir à página de login', login_path, class: 'inline-block align-baseline font-bold text-sm text-gray-700 hover:text-gray-800 mt-2 dark:text-gray-200 dark:hover:text-gray-300' %>
+        <% end %>
     </div>
-    <div class="mb-4">
-      <%= form.label :email, "Email", class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-      <%= form.email_field :email, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600', placeholder: "seu_email@colmeia.com" %>
-    </div>
-    <div class="mb-4">
-      <%= form.label :password, "Senha", class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-      <%= form.password_field :password, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600', placeholder: "********" %>
-    </div>
-    <div class="mb-4">
-      <%= form.label :password_confirmacao, "Confirmação de senha", class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-      <%= form.password_field :password_confirmacao, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600', placeholder: "********" %>
-    </div>
-    <%= form.submit "Registrar", class: 'bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full' %>
-    <%= link_to '<- Ir à página de login', login_path, class: 'inline-block align-baseline font-bold text-sm text-gray-700 hover:text-gray-800 mt-2 dark:text-gray-200 dark:hover:text-gray-300' %>
-  <% end %>
 </div>

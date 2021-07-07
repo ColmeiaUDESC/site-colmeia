@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'main#index'
 
   # CADASTRO
-  get 'cadastro', to: 'cadastro#new'
+  get 'cadastro', to: 'cadastro#index'
   post 'cadastro' , to: 'cadastro#create'
 
   # LOGIN
