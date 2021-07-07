@@ -19,23 +19,23 @@
             <span class="font-semibold <%=alert_configs[type].title_class%>"><%=alert_configs[type].title%></span>
             <div>
                 <%
-                message = ""
+                # Converter body para um array caso body seja so um string
                 if body.is_a?(String)
-                    message = body
-                else
-                    messages.each do |message|
-                        message += message+"\n"
-                    end
+                    puts "body e so um string"
+                    body = [body]
                 end
+
+                body.each do |message|
                 %>
                 <p class="text-sm text-gray-600 dark:text-gray-200"><%= message %></p>
+                <%end%>
             </div>
         </div>
     </div>
 </div>
 <%
     else
-        Rails.logger.error "Tipo de alerta não existente: "+type
+        puts "!!!!!!AVISO!!!!!! Flash do tipo "+type+" não possuí um alerta associado a ele! Mude o tipo do flash para algo que exista ou crie um alerta para ele!"
     end
 end
 %>
