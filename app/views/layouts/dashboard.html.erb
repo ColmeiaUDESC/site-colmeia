@@ -17,10 +17,15 @@
 
 <body>
     <div class="flex flex-col min-h-screen bg-white dark:bg-gray-800 lg:flex-row">
-      <%= render partial: "shared/dashboard_sidebar" %>
-      <div class="p-10 w-full">
-        <%= yield %>
-      </div>
+        <%= render partial: "shared/dashboard_sidebar" %>
+        <div class="p-10 w-full">
+            <% if !flash.empty?%>
+            <div class="mb-8">
+                <%= render partial: "shared/alert"%>
+            </div>
+            <%end%>
+            <%= yield %>
+        </div>
     </div>
 </body>
 
