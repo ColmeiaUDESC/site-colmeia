@@ -29,7 +29,7 @@
     <div class="mb-4">
       <%= form.label :users_name, 'Escritor', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
       <%= form.text_field :users_name, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
-        value: @post.users_name, disabled: 'true' %>
+        value: @post.users_name , readonly: 'true'%>
     </div>
 
     <div class="actions">

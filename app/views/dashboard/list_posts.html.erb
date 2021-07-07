@@ -9,6 +9,9 @@
               <thead class="bg-gray-50">
                 <tr>
                   <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    ID
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Título
                   </th>
                   <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -21,7 +24,7 @@
                     Data de criação
                   </th>
                   <th scope="col" class="relative px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    <span class="sr-only">Editar</span>
+                    <span class="sr-only">Acões</span>
                   </th>
                 </tr>
               </thead>
@@ -32,8 +35,11 @@
                       <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
                           <div class="flex items-center">
-                            <%= link_to post.title, post_path(id: post.id), target: '_blank', class: 'text-sm font-medium text-gray-900' %>
+                            <span class="text-sm font-medium text-gray-900"><%= post.id %></span>
                           </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <%= link_to post.title, post_path(id: post.id), target: '_blank', class: 'text-sm font-medium text-gray-900' %>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                           <div class="text-sm text-gray-900"><%= post.users_name %></div>
