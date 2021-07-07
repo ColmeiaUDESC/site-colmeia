@@ -15,12 +15,12 @@ class CadastroController < ApplicationController
       if @user.save
         redirect_to root_path, notice: "Conta criada com sucesso"
       else
-        render :new
+        render :index
       end
 
     end
 
     def user_params
-      params.permit(:email,:password,:data_de_inicio,:name,:situacao)
+      params.permit(:email, :password, :password_confirmation, :name, :sobrenome)
     end
 end

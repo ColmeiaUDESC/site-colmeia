@@ -13,9 +13,10 @@
 
 #Lembrando que o modelo de usuário possui os seguintes campos
 #name:string (Obrigatório)
+#sobrenome:string (Obrigatório)
 #email:string (Obrigatório)
 #password_digest:string (Deve ser passado como password ou password+password_confirmation)
 #situacao:string
 #data_de_inicio:date
 
-User.create(name:"admin", email:"admin@admin", password:"DevEnv", situacao:"Bolsista")
+User.create(name:"admin", sobrenome:"admin", email:"admin@admin", password:"DevEnv", situacao:"Bolsista")
