@@ -1,7 +1,7 @@
 <article class="container mx-auto block py-10 px-4 space-y-10 lg:mt-10 lg:space-y-0 lg:space-x-4 lg:flex">
   <div class="block w-full lg:w-2/3 space-y-4">
     <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
-      <%= link_to '<- Voltar', root_path, class: 'text-yellow-500 hover:text-yellow-600' %>
+      <%= link_to '<- Voltar', request.referer, class: 'text-yellow-500 hover:text-yellow-600' %>
       <div class="mt-5 flex justify-between items-center">
         <p class="text-3xl font-bold text-gray-700 dark:text-gray-200"><%= @post.title %></p>
         <span class="bg-gray-200 text-gray-700 px-2 py-1 font-bold text-sm uppercase rounded">Linux, Rust, C</span>
