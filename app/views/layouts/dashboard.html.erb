@@ -12,6 +12,15 @@
     <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap',
       media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'sidebar', 'data-turbolinks-track': 'reload' %>
+
+    <% if request.path.include?(dashboard_posts_new_path) || (request.path.include?('posts') && request.path.include?('edit'))
+        # Scripts da textarea dos posts 
+    %>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+        <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <%= javascript_pack_tag 'application', 'tinyMCE', 'data-turbolinks-track': 'reload' %>
+    <% end %>
+
     <%= stylesheet_pack_tag 'application', 'data-turbo-track': 'reload' %>
 </head>
 

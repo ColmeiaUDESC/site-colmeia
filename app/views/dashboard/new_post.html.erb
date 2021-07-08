@@ -14,7 +14,7 @@
     <div class="mb-4">
       <%= form.label :html, 'Corpo da postagem', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
       <%= link_to 'Guia de markdown', 'https://guides.github.com/features/mastering-markdown/', target: '_blank', class: 'block text-gray-400 text-sm font-medium mb-2 dark:text-gray-200 hover:underline' %>
-      <%= form.text_area :html, class: 'h-96 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600' %>
+      <%= form.text_area :html, id: 'simplemde', class: 'no-tailwindcss-base' %>
     </div>
 
     <div class="mb-4">

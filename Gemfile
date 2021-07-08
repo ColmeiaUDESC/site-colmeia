@@ -58,3 +58,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'tailwindcss-rails', '~> 0.3.3'
 
 gem 'httparty', '~> 0.18.1'
+
+gem 'redcarpet', '~> 3.5.1'
