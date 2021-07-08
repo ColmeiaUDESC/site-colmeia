@@ -18,9 +18,6 @@
 <body>
     <div class="flex flex-col min-h-screen bg-white dark:bg-gray-800">
         <%= render partial: "shared/navbar" %>
-        <% flash.each do |type, message|%>
-        <%= render partial: "shared/alert", locals: {messages: message, type: type}%>
-        <%end%>
         <%= yield %>
         <%= render partial: "shared/footer" %>
     </div>
