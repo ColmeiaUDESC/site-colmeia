@@ -1,3 +1,4 @@
+<div id="modalPlace"></div>
 <div>
   <h1 class="text-2xl text-gray-700 font-bold">Listagem de usuários</h1>
   <div class="mt-10">
@@ -55,7 +56,7 @@
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <%= link_to 'Editar', edit_user_path(id: user.id), class: 'text-gray-700 hover:text-gray-800 mr-2' %>
-                        <a href="#" class="text-red-600 hover:text-red-700">Excluir</a>
+                        <%= button_tag 'Excluir', type: 'button', :onclick => 'modalToggle(' + user.id.to_s + ', 1)', class: 'text-red-600 hover:text-red-700' %>
                       </td>
                     </tr>
                 <% end %>
