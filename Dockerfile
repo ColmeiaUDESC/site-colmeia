@@ -11,7 +11,7 @@ WORKDIR /app
 
 COPY . /app
 
-RUN yarn install
+RUN yarn install --ignore-optional --ignore-platform
 RUN bundle install --jobs 4
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
