@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   
   get 'projetos', to: 'projetos#index'
 
+  get 'perfil', to: 'perfil#index'
+
   get 'dashboard', to: 'dashboard#index'
   get 'dashboard/posts', to: 'dashboard#list_posts'
   get 'dashboard/posts/new', to: 'dashboard#new_post'
