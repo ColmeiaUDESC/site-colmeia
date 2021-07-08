@@ -7,9 +7,9 @@
         <span class="bg-gray-200 text-gray-700 px-2 py-1 font-bold text-sm uppercase rounded">Linux, Rust, C</span>
       </div>
       <p class="mt-2 text-gray-700 dark:text-gray-200">Escrito por <%= @post.users_name %> em <%= @post.created_at %>.</p>
-      <p class="mt-4 text-sm lg:text-base text-gray-700 dark:text-gray-200">
-        <%= sanitize @post.html %>
-      </p>
+      <div class="mt-4 text-gray-700 dark:text-gray-200 space-y-3 no-tailwindcss-base">
+        <%= sanitize Markdown.new(@post.html).to_html %>
+      </div>
       <div class="mt-10">
         <hr class="dark:border-gray-700">
       </div>
