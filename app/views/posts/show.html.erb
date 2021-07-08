@@ -1,7 +1,56 @@
+<article class="container mx-auto block py-10 px-4 space-y-10 lg:mt-10 lg:space-y-0 lg:space-x-4 lg:flex">
+  <div class="block w-full lg:w-2/3 space-y-4">
+    <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
+      <%= link_to '<- Voltar', root_path, class: 'text-yellow-500 hover:text-yellow-600' %>
+      <div class="mt-5 flex justify-between items-center">
+        <p class="text-3xl font-bold text-gray-700 dark:text-gray-200"><%= @post.title %></p>
+        <span class="bg-gray-200 text-gray-700 px-2 py-1 font-bold text-sm uppercase rounded">Linux, Rust, C</span>
+      </div>
+      <p class="mt-2 text-gray-700 dark:text-gray-200">Escrito por <%= @post.users_name %> em <%= @post.created_at %>.</p>
+      <p class="mt-4 text-sm lg:text-base text-gray-700 dark:text-gray-200">
+        <%= sanitize @post.html %>
+      </p>
+      <div class="mt-10">
+        <hr class="dark:border-gray-700">
+      </div>
+      <textarea class="mt-10 resize-y border rounded-md w-full bg-gray-200 p-2 text-gray-700"></textarea>
+      <button class="mt-2 bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer">Enviar comentário</button>
 
-<% # Fazer tailwind do titulo %>
-<p class="text-3xl font-bold text-gray-700 dark:text-gray-200"><%= @post.title %></p>
-<p class="mt-2 text-gray-700 dark:text-gray-200">Escrito por <%= @post.users_name %> em <%= @post.created_at %>.</p>
-<%= sanitize @post.html %>
+      <p class="mt-10 text-xl font-bold text-gray-700 dark:text-gray-200">Comentários</p>
+      <div class="mt-10 space-y-5">
+        <div class="flex items-center">
+          <img src="https://avatars.githubusercontent.com/u/60761706?v=4" class="h-14 rounded-full ring-2 ring-yellow-400">
+          <div class="ml-5">
+            <p class="font-semibold text-gray-700">João Dematte</p>
+            <p class="text-gray-700">Muito interessante todo esse conteúdo!</p>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <img src="https://avatars.githubusercontent.com/u/60761706?v=4" class="h-14 rounded-full ring-2 ring-yellow-400">
+          <div class="ml-5">
+            <p class="font-semibold text-gray-700">João Dematte</p>
+            <p class="text-gray-700">Muito interessante todo esse conteúdo!</p>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <img src="https://avatars.githubusercontent.com/u/60761706?v=4" class="h-14 rounded-full ring-2 ring-yellow-400">
+          <div class="ml-5">
+            <p class="font-semibold text-gray-700">João Dematte</p>
+            <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum, risus ut lacinia consectetur, mi risus molestie justo, placerat bibendum sapien felis sed nisi. Vivamus aliquam risus dolor, ultrices tincidunt enim gravida a. Mauris vestibulum mi tellus, sit amet mollis dolor egestas sit amet. Etiam at massa nec lorem malesuada faucibus. Quisque tristique, quam nec varius viverra, diam nisl porttitor neque, quis laoreet est tortor a urna.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    </div>
 
+    <hr class="dark:border-gray-700">
+
+    <div class="w-full lg:w-1/3 h-full bg-gray-100 p-10 rounded shadow dark:bg-gray-900">
+      <h1 class="text-3xl font-bold text-gray-700 dark:text-gray-200">Últimos posts</h1>
+      <div class="mt-4 space-y-2 divide-y divide-gray-200 dark:divide-gray-700">
+        <p class="font-semibold text-gray-700 dark:text-gray-200">teste</p>
+      </div>
+    </div>
+  </div>
+</article>
