@@ -18,5 +18,5 @@ class User < ApplicationRecord
     validates :nome, presence: true
     validates :sobrenome, presence: true
     validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'em formato inválido' }
-
+    has_many :comentario
 end

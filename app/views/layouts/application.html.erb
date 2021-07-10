@@ -12,6 +12,11 @@
     <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap',
       media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'navbar', 'githubapi', 'data-turbolinks-track': 'reload' %>
+    <% if request.path.include?('blog/') && !request.path.include?('blog/p/')
+        # Script de modal para confirmação de excluir comentario 
+    %>
+    <%= javascript_pack_tag 'application', 'modal', 'data-turbolinks-track': 'reload' %>
+    <% end %>
     <%= stylesheet_pack_tag 'application', 'data-turbo-track': 'reload' %>
 </head>
 
