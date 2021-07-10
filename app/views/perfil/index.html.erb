@@ -4,7 +4,7 @@
       <h1 class="text-3xl font-bold text-gray-700 dark:text-gray-200">Editar perfil</h1>
       <div class="flex divide-x space-x-5">
         <div class="w-full lg:w-1/2">
-          <%= form_with url: dashboard_path, method: 'put', class: 'mt-4 space-y-4' do |form| %>
+          <%= form_with url: user_update_path(id: Current.user.id), method: 'put', class: 'mt-4 space-y-4' do |form| %>
             <div>
               <div class="flex items-center w-full space-x-5">
                 <div class="w-full">
