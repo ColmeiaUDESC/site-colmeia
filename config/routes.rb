@@ -32,4 +32,8 @@ Rails.application.routes.draw do
   get 'blog/p/:pag', to: 'posts#index', as: 'posts_pag'
   put 'blog/:id', to: 'posts#update', as: 'post_update'
   delete 'blog/:id', to: 'posts#destroy', as: 'post_destroy'
+
+  #Comentario
+  post 'comentario/:post_id', to: 'comentarios#create', as: 'comentario'
+  delete 'comentario/:id', to: 'comentarios#destroy', as: 'comentario_destroy'
 end
