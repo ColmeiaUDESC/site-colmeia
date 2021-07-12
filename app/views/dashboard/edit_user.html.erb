@@ -6,7 +6,7 @@
   <h1 class="text-2xl text-gray-700 font-bold">
     Edição da usuário ID: <span class="bg-yellow-400 text-yellow-700 px-2 py-1 font-bold uppercase rounded"><%= @user.id %></span>
   </h1>
-  <%= form_with url: post_update_path(id: params[:id]), method: 'put', class: 'mt-10' do |form| %>
+  <%= form_with url: user_dash_update_path(id: params[:id]), method: 'put', class: 'mt-10' do |form| %>
     <div class="mb-4">
       <%= form.label :nome, 'Nome do usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
       <%= form.text_field :nome, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',

@@ -33,7 +33,12 @@ Rails.application.routes.draw do
   put 'blog/:id', to: 'posts#update', as: 'post_update'
   delete 'blog/:id', to: 'posts#destroy', as: 'post_destroy'
 
-  #Comentario
+  # Comentario
   post 'comentario/:post_id', to: 'comentarios#create', as: 'comentario'
   delete 'comentario/:id', to: 'comentarios#destroy', as: 'comentario_destroy'
+
+  # User
+  put 'user/:id', to: 'user#update', as: 'user_update'
+  put 'dashboard/users/:id', to: 'user#updateFromDash', as: 'user_dash_update'
+  delete 'user/:id', to: 'user#destroy', as: 'user_destroy'
 end
