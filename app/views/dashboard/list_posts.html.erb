@@ -46,7 +46,18 @@
                           <div class="text-sm text-gray-900"><%= post.users_name %></div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                          <span class="bg-gray-200 text-gray-700 px-2 py-1 font-bold text-sm uppercase rounded">Linux, Rust, C</span>
+                          <span class="bg-gray-200 text-gray-700 px-2 py-1 font-bold text-sm uppercase rounded">
+                          <%
+                            tags = post.postsTag.all()
+                            if tags!=[]
+                              len = tags.length
+                              tags.each_with_index do |tag, index| %>
+                                <%= if index+1 < len then link_to tag.tag.nome+", ", posts_pag_path(pag: 1,tag: tag.tag.id) else link_to tag.tag.nome, posts_pag_path(pag: 1,tag: tag.tag.id) end%>
+                              <% end
+                            else %>
+                              <%= '#' %>
+                            <% end %>
+                          </span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                           <span class="text-sm text-gray-900"><%= post.created_at %></span>
