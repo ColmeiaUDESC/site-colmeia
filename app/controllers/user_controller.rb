@@ -2,9 +2,11 @@ class UserController < ApplicationController
     before_action :set_user, only: %i[ update destroy updateFromDash ]
 
     def update
-      if @user.situacao=="Visitante"
+      if Current.user.situacao=="Visitante"
         params = user_params_visitante
-      else
+      elsif Current.user.situacao!="Bolsista"
+        params = user_params.except(:situacao)
+      else 
         params = user_params
       end
       respond_to do |format|
@@ -19,9 +21,9 @@ class UserController < ApplicationController
     end
 
     def updateFromDash
-      if @user.situacao=="Visitante"
-        params = user_params_visitante
-      else
+      if Current.user.situacao!="Bolsista"
+        params = user_params.except(:situacao)
+      else 
         params = user_params
       end
       respond_to do |format|
@@ -58,7 +60,7 @@ class UserController < ApplicationController
         params.permit(:nome, :sobrenome, :email, :password, :password_confirmation, :imagem_url)
       end
       def user_params
-        params.permit(:nome, :sobrenome, :email, :password, :password_confirmation, :imagem_url, :desc, :github_username, :instagram_username, :twitter_username, :discord_username)
+        params.permit(:nome, :sobrenome, :email, :password, :password_confirmation, :situacao, :imagem_url, :desc, :github_username, :instagram_username, :twitter_username, :discord_username)
       end
 
 
