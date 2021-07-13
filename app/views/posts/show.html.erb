@@ -1,29 +1,29 @@
 <div id="modalPlace"></div>
 <article class="container mx-auto block py-10 px-4 space-y-10 lg:mt-10 lg:space-y-0 lg:space-x-4 lg:flex">
-  <div class="block w-full lg:w-2/3 space-y-4">
-    <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
-      <%= link_to '<- Voltar', request.referer, class: 'text-yellow-500 hover:text-yellow-600' %>
-      <div class="mt-5 flex justify-between items-center">
-        <p class="text-3xl font-bold text-gray-700 dark:text-gray-200"><%= @post.title %></p>
-        <span class="bg-gray-200 text-gray-700 px-2 py-1 font-bold text-sm uppercase rounded">
-        <%
+    <div class="block w-full lg:w-2/3 space-y-4">
+        <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
+            <%= link_to '<- Voltar', request.referer, class: 'text-yellow-500 hover:text-yellow-600' %>
+            <div class="mt-5 flex justify-between items-center">
+                <p class="text-3xl font-bold text-gray-700 dark:text-gray-200"><%= @post.title %></p>
+                <span class="bg-gray-200 text-gray-700 px-2 py-1 font-bold text-sm uppercase rounded">
+                    <%
           tags = @post.postsTag.all()
           if tags!=[]
             len = tags.length
             tags.each_with_index do |tag, index| %>
-              <%= if index+1 < len then link_to tag.tag.nome+", ", posts_pag_path(pag: 1,tag: tag.tag.id) else link_to tag.tag.nome, posts_pag_path(pag: 1,tag: tag.tag.id) end%>
-            <% end
+                    <%= if index+1 < len then link_to tag.tag.nome+", ", posts_pag_path(pag: 1,tag: tag.tag.id) else link_to tag.tag.nome, posts_pag_path(pag: 1,tag: tag.tag.id) end%>
+                    <% end
           end %>
-        </span>
-      </div>
-      <p class="mt-2 text-gray-700 dark:text-gray-200">Escrito por <%= @post.users_name %> em <%= @post.created_at %>.</p>
-      <div class="mt-4 text-gray-700 dark:text-gray-200 space-y-3 no-tailwindcss-base">
-        <%= sanitize Markdown.new(@post.html).to_html %>
-      </div>
-      <div class="mt-10">
-        <hr class="dark:border-gray-700">
-      </div>
-      <%
+                </span>
+            </div>
+            <p class="mt-2 text-gray-700 dark:text-gray-200">Escrito por <%= @post.users_name %> em <%= @post.created_at %>.</p>
+            <div class="mt-4 text-gray-700 dark:text-gray-200 space-y-3 no-tailwindcss-base">
+                <%= sanitize Markdown.new(@post.html).to_html %>
+            </div>
+            <div class="mt-10">
+                <hr class="dark:border-gray-700">
+            </div>
+            <%
       if Current.user
       %>
             <%= form_with url: comentario_path(post_id: params[:id]), method: 'post' do |form| %>
@@ -59,7 +59,7 @@
                         <p class="font-semibold text-gray-700"><%= username %></p>
                         <p class="text-gray-700"><%= comentario.comentario %></p>
                     </div>
-                    <% if user.id==Current.user.id || Current.user.situacao=="Bolsista"%>
+                    <% if Current.user && (user.id==Current.user.id || Current.user.situacao=="Bolsista")%>
                     <button type="button" onclick="modalToggle(<%= comentario.id.to_s %>, 2)" class="text-red-600 hover:text-red-800 absolute top-0 right-0">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
