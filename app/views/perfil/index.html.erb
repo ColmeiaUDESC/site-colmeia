@@ -4,7 +4,7 @@
             <h1 class="text-3xl font-bold text-gray-700 dark:text-gray-200">Editar perfil</h1>
             <div class="flex divide-x space-x-5">
                 <div class="w-full lg:w-1/2">
-                    <%= form_with url: dashboard_path, method: 'put', class: 'mt-4 space-y-4' do |form| %>
+                    <%= form_with url: user_update_path(id: Current.user.id), method: 'put', class: 'mt-4 space-y-4' do |form| %>
                     <div>
                         <div class="flex items-center w-full space-x-5">
                             <div class="w-full">
@@ -94,10 +94,10 @@
 
                 <div class="w-1/2 hidden lg:block">
                     <div class="flex flex-col h-full w-full justify-center items-center">
-                        <% if Current.user.imagem_url != nil %>
-                        <%= image_tag Current.user.imagem_url, class: 'h-80 rounded-full ring-4 ring-yellow-400' %>
+                        <% if Current.user.imagem_url != "" %>
+                        <%= image_tag(Current.user.imagem_url, class: 'h-80 rounded-full ring-4 ring-yellow-400') %>
                         <% else %>
-                        <%= image_tag "abelha.png", class: 'h-80 rounded-full ring-4 ring-yellow-400' %>
+                        <%= image_tag('abelha.png', class:'h-80 rounded-full ring-4 ring-yellow-400') %>
                         <% end %>
                         <h1 class="mt-5 text-3xl font-bold text-gray-700 dark:text-gray-200"><%= Current.user.nome + ' ' + Current.user.sobrenome %></h1>
                         <p class="mt-1 text-xl font-semibold text-gray-600 dark:text-gray-200"><%= Current.user.desc %></p>
