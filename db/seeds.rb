@@ -19,4 +19,4 @@
 #situacao:string
 #data_de_inicio:date
 
-User.create(nome:"admin", sobrenome:"admin", email:"admin@admin.com", password:"DevEnv", situacao:"Bolsista", github_username: 'joaodematte', twitter_username: 'joaodematte', instagram_username: 'joaodematte', discord_username: '689272830038245420', imagem_url: 'https://avatars.githubusercontent.com/u/60761706?v=4')
+User.create(nome:"admin", sobrenome:"admin", email:"admin@admin.com", password:"DevEnv", situacao:"Bolsista", github_username: 'joaodematte', twitter_username: 'joaodematte', instagram_username: 'joaodematte', discord_username: '689272830038245420')
