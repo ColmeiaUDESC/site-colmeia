@@ -23,7 +23,7 @@
                 <div class="relative inline-block text-left">
                     <div>
                         <button id="dropdownMenu" class="inline-block">
-                            <% if Current.user.imagem_url != "" %>
+                            <% if Current.user.imagem_url != "" && Current.user.imagem_url != nil %>
                             <%= image_tag(Current.user.imagem_url, class: 'h-10 w-10 rounded-full ring-2 ring-yellow-400') %>
                             <% else %>
                             <%= image_tag('abelha.png', class: 'h-10 w-10 rounded-full ring-2 ring-yellow-400') %>

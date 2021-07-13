@@ -3,7 +3,7 @@
         <% @membros.each do |membro| %>
         <div class="w-full bg-gray-100 rounded relative text-center p-10 dark:bg-gray-900 shadow">
 
-            <% if membro.imagem_url != "" %>
+            <% if membro.imagem_url != "" && membro.imagem_url != nil %>
             <%= image_tag(membro.imagem_url, class:"rounded-full h-36 w-36 mx-auto ring-4 ring-yellow-400")%>
             <% else %>
             <%= image_tag('abelha.png', class:"rounded-full h-36 w-36 mx-auto ring-4 ring-yellow-400")%>

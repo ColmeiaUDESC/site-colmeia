@@ -38,7 +38,7 @@
           @comentarios.each do |comentario|
             user = User.all().find_by(id: comentario.user_id)
             username = user.nome
-            if user.imagem_url != "" 
+            if user.imagem_url != "" && user.imagem_url != nil
               userimage = user.imagem_url
             else
               userimage = "abelha.png"
