@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   # Posts
   post 'blog', to: 'posts#create', as: 'posts'
   get 'blog/:id', to: 'posts#show', as: 'post'
-  get 'blog/p/:pag', to: 'posts#index', as: 'posts_pag'
+  get 'blog/p/:pag(/:tag)', to: 'posts#index', as: 'posts_pag'
   put 'blog/:id', to: 'posts#update', as: 'post_update'
   delete 'blog/:id', to: 'posts#destroy', as: 'post_destroy'
 
@@ -41,4 +41,9 @@ Rails.application.routes.draw do
   put 'user/:id', to: 'user#update', as: 'user_update'
   put 'dashboard/users/:id', to: 'user#updateFromDash', as: 'user_dash_update'
   delete 'user/:id', to: 'user#destroy', as: 'user_destroy'
+
+  # Tag
+  post 'tag', to: 'tag#create', as: 'tag'
+  put 'tag/:id', to: 'tag#update', as: 'tag_update'
+  delete 'tag/:id', to: 'tag#update', as: 'tag_destroy'
 end

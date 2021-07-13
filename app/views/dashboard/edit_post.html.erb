@@ -5,7 +5,7 @@
   <h1 class="text-2xl text-gray-700 font-bold">
     Edição da postagem ID: <span class="bg-yellow-400 text-yellow-700 px-2 py-1 font-bold uppercase rounded"><%= @post.id %></span>
   </h1>
-  <%= form_with url: post_update_path(id: params[:id]), method: 'put', class: 'mt-10' do |form| %>
+  <%= form_with url: post_update_path(id: params[:id]), method: 'put', class: 'mt-10', id: 'postForm' do |form| %>
     <div class="mb-4">
       <%= form.label :title, 'Título da postagem', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
       <%= form.text_field :title, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
@@ -23,6 +23,24 @@
       <%= link_to 'Guia de markdown', 'https://guides.github.com/features/mastering-markdown/', target: '_blank', class: 'block text-gray-400 text-sm font-medium mb-2 dark:text-gray-200 hover:underline' %>
       <%= form.text_area :html, id: 'simplemde', class: 'h-96 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
         value: @post.html %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :tags, 'Tags', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_field :tags, hidden: true %>
+      <%
+        tags = Tag.all.order(nome: :desc)
+        if tags!=[]
+        tags.each_with_index do |tag, index| %>
+          <label class="<%= if index>0 then "ml-2 " end%>md:w-2/3 text-gray-500 font-bold">
+            <input class="mr-1 leading-tight tagsCheck" value="<%= tag.id %>" <%= if @post.postsTag.find_by(tag_id:tag.id)!=nil then "checked" end %> type="checkbox">
+            <span class="text-sm">
+              <%= tag.nome %>
+            </span>
+          </label>
+        <% end else %>
+        <span class="text-gray-500 font-bold text-sm">Nenhuma tag cadastrada!</span>
+        <% end %>
     </div>
 
     <div class="mb-4">
