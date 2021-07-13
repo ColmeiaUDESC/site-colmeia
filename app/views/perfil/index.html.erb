@@ -1,106 +1,110 @@
 <main class="container mx-auto block py-10 px-4 space-y-10 lg:flex">
-  <div class="block w-full">
-    <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
-      <h1 class="text-3xl font-bold text-gray-700 dark:text-gray-200">Editar perfil</h1>
-      <div class="flex divide-x space-x-5">
-        <div class="w-full lg:w-1/2">
-          <%= form_with url: user_update_path(id: Current.user.id), method: 'put', class: 'mt-4 space-y-4' do |form| %>
-            <div>
-              <div class="flex items-center w-full space-x-5">
-                <div class="w-full">
-                  <%= form.label :nome, 'Nome', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-                  <%= form.text_field :nome, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+    <div class="block w-full">
+        <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
+            <h1 class="text-3xl font-bold text-gray-700 dark:text-gray-200">Editar perfil</h1>
+            <div class="flex divide-x space-x-5">
+                <div class="w-full lg:w-1/2">
+                    <%= form_with url: dashboard_path, method: 'put', class: 'mt-4 space-y-4' do |form| %>
+                    <div>
+                        <div class="flex items-center w-full space-x-5">
+                            <div class="w-full">
+                                <%= form.label :nome, 'Nome', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+                                <%= form.text_field :nome, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
                     value: Current.user.nome %>
-                </div>
-                <div class="w-full">
-                  <%= form.label :sobrenome, 'Sobrenome', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-                  <%= form.text_field :sobrenome, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+                            </div>
+                            <div class="w-full">
+                                <%= form.label :sobrenome, 'Sobrenome', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+                                <%= form.text_field :sobrenome, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
                     value: Current.user.sobrenome %>
-                </div>
-              </div>
-            </div>
-            <div>
-              <%= form.label :email, 'Email', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-                  <%= form.text_field :email, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <%= form.label :email, 'Email', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+                        <%= form.text_field :email, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
                     value: Current.user.email %>
-            </div>
-            <div>
-              <%= form.label :situacao, 'Situação', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-              <%= form.text_field :situacao, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+                    </div>
+                    <div>
+                        <%= form.label :situacao, 'Situação', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+                        <%= form.text_field :situacao, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
                 value: Current.user.situacao, readonly: 'true' %>
-            </div>
-            <div>
-              <%= form.label :imagem_url, 'URL da imagem de perfil', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-              <%= form.text_field :imagem_url, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+                    </div>
+                    <div>
+                        <%= form.label :imagem_url, 'URL da imagem de perfil', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+                        <%= form.text_field :imagem_url, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
                 value: Current.user.imagem_url %>
-            </div>
+                    </div>
 
-            
-            <% if Current.user.situacao != 'Visitante' %>
-              <hr>
-              <div>
-                <%= form.label :desc, 'Descrição', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-                <%= form.text_area :desc, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+
+                    <% if Current.user.situacao != 'Visitante' %>
+                    <hr>
+                    <div>
+                        <%= form.label :desc, 'Descrição', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+                        <%= form.text_area :desc, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
                   value: Current.user.desc %>
-              </div>
-              <div>
-                <%= form.label :github_username, 'Usuário do Github', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-                <%= form.text_field :github_username, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+                    </div>
+                    <div>
+                        <%= form.label :github_username, 'Usuário do Github', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+                        <%= form.text_field :github_username, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
                   value: Current.user.github_username %>
-              </div>
-              <div>
-                <%= form.label :instagram_username, 'Usuário do Instagram', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-                <%= form.text_field :instagram_username, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+                    </div>
+                    <div>
+                        <%= form.label :instagram_username, 'Usuário do Instagram', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+                        <%= form.text_field :instagram_username, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
                   value: Current.user.instagram_username %>
-              </div>
-              <div>
-                <%= form.label :twitter_username, 'Usuário do Twitter', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-                <%= form.text_field :twitter_username, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+                    </div>
+                    <div>
+                        <%= form.label :twitter_username, 'Usuário do Twitter', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+                        <%= form.text_field :twitter_username, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
                   value: Current.user.twitter_username %>
-              </div>
-              <div>
-                <%= form.label :discord_username, 'ID do Discord', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-                <%= form.text_field :discord_username, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+                    </div>
+                    <div>
+                        <%= form.label :discord_username, 'ID do Discord', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+                        <%= form.text_field :discord_username, class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
                   value: Current.user.discord_username %>
-              </div>
-            <% end %>
-            <button class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Salvar informações</button>
-            
-            <hr>
+                    </div>
+                    <% end %>
+                    <button class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Salvar informações</button>
 
-            <div>
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="senha_atual">
-                Senha atual
-              </label>
-              <input class="shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="senha_atual" type="password" placeholder="********">
-            </div>
-            <div class="flex items-center w-full space-x-5">
-              <div class="w-full">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="nova_senha">
-                  Nova senha
-                </label>
-                <input class="shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nova_senha" type="password" placeholder="********">
-              </div>
-              <div class="w-full">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="confirmacao_nova_senha">
-                  Confirmar nova senha
-                </label>
-                <input class="shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="confirmacao_nova_senha" type="password" placeholder="********">
-              </div>
-            </div>
-            <button class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Trocar senha</button>
-          <% end %>
-        </div>
+                    <hr>
 
-        <div class="w-1/2 hidden lg:block">
-          <div class="flex flex-col h-full w-full justify-center items-center">
-            <%= image_tag Current.user.imagem_url, class: 'h-80 rounded-full ring-4 ring-yellow-400' %>
-            <h1 class="mt-5 text-3xl font-bold text-gray-700 dark:text-gray-200"><%= Current.user.nome + ' ' + Current.user.sobrenome %></h1>
-            <p class="mt-1 text-xl font-semibold text-gray-600 dark:text-gray-200"><%= Current.user.desc %></p>
-            <span class="mt-2 bg-yellow-400 text-yellow-700 px-2 py-1 font-bold text-white text-sm uppercase rounded"><%= Current.user.situacao %></span>
-          </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="senha_atual">
+                            Senha atual
+                        </label>
+                        <input class="shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="senha_atual" type="password" placeholder="********">
+                    </div>
+                    <div class="flex items-center w-full space-x-5">
+                        <div class="w-full">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="nova_senha">
+                                Nova senha
+                            </label>
+                            <input class="shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nova_senha" type="password" placeholder="********">
+                        </div>
+                        <div class="w-full">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="confirmacao_nova_senha">
+                                Confirmar nova senha
+                            </label>
+                            <input class="shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="confirmacao_nova_senha" type="password" placeholder="********">
+                        </div>
+                    </div>
+                    <button class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Trocar senha</button>
+                    <% end %>
+                </div>
+
+                <div class="w-1/2 hidden lg:block">
+                    <div class="flex flex-col h-full w-full justify-center items-center">
+                        <% if Current.user.imagem_url != nil %>
+                        <%= image_tag Current.user.imagem_url, class: 'h-80 rounded-full ring-4 ring-yellow-400' %>
+                        <% else %>
+                        <%= image_tag "abelha.png", class: 'h-80 rounded-full ring-4 ring-yellow-400' %>
+                        <% end %>
+                        <h1 class="mt-5 text-3xl font-bold text-gray-700 dark:text-gray-200"><%= Current.user.nome + ' ' + Current.user.sobrenome %></h1>
+                        <p class="mt-1 text-xl font-semibold text-gray-600 dark:text-gray-200"><%= Current.user.desc %></p>
+                        <span class="mt-2 bg-yellow-400 text-yellow-700 px-2 py-1 font-bold text-white text-sm uppercase rounded"><%= Current.user.situacao %></span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </main>
