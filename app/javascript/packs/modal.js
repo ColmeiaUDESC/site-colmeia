@@ -38,6 +38,7 @@ let modal = (id, modalType) => `
 
 window.modalToggle = (id, modalType) => {
   divModal = document.getElementById('modalPlace');
+  divModal.innerHTML = '';
   divModal.innerHTML += modal(id, modalType).replace(/(\r\n|\n|\r)/gm, "");
 
   document.getElementById('closeModal').addEventListener('click', () => {
