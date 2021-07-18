@@ -42,10 +42,9 @@ Agora, realize um dos seguintes métodos de instalação.
 Vá para o diretório do projeto e execute:
 
 ```sh
-sudo docker-compose run web rails db:create
-sudo docker-compose run web rails db:migrate
+sudo docker-compose run web rails db:setup
 sudo docker-compose run web rails db:seed
-sudo docker-compose up
+sudo docker-compose up --build
 ```
 
 ## Instalação manual
