@@ -28,4 +28,8 @@ class DashboardController < ApplicationController
     def edit_user
       @page_title = 'Colmeia | Edição de usuários'
     end
+
+    def edit_info
+      @page_title = 'Colmeia | Edição de informações'
+    end
 end
