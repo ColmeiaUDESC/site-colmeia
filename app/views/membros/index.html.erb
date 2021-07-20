@@ -1,6 +1,8 @@
 <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 lg:px-10 py-10">
-        <% @membros.each do |membro| %>
+        <% @membros.each do |membro| 
+        if membro.email != "admin@admin.com"
+        %>
         <div class="w-full bg-gray-100 rounded relative text-center p-10 dark:bg-gray-900 shadow">
 
             <% if membro.imagem_url != "" && membro.imagem_url != nil %>
@@ -42,6 +44,6 @@
                         </div>
             </div>
         </div>
-        <% end %>
+        <% end end %>
     </div>
 </div>
