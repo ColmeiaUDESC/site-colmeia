@@ -1,7 +1,8 @@
 <div id="modalPlace"></div>
 <div>
   <h1 class="text-2xl text-gray-700 font-bold">Editar Informações da home page:</h1>
-  <div class="mt-10">
+  
+  <div class="mt-10 Post-it">
     <div class="flex flex-col">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -26,13 +27,13 @@
               <tbody class="bg-white divide-y">
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">Teste</div>
+                    <div class="text-sm text-gray-900"><%= Link.last.texto %></div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">Teste</div>
+                    <div class="text-sm text-gray-900"><%= Link.last.botao %></div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">Teste</div>
+                    <div class="text-sm text-gray-900"><%= Link.last.link %></div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <%= link_to 'Editar', "/", class: 'text-gray-700 hover:text-gray-800 mr-2' %>
@@ -45,22 +46,5 @@
       </div>
     </div>
   </div>
+
 </div>
-
-<%
-#true
-
-#<td class="px-6 py-4 whitespace-nowrap">
-#                          <div class="text-sm text-gray-900"></div>
-#                        </td>
-
-#<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-#    <%= link_to 'Editar', edit_post_path(id: post.id), class: 'text-gray-700 hover:text-gray-800 mr-2' 
-#    <%= <%= link_to 'Excluir', post_destroy_path(id: post.id), method: 'delete', class: 'text-red-600 hover:text-red-700' 
-#    <%= button_tag 'Excluir', type: 'button', :onclick => 'modalToggle(' + post.id.to_s + ', 0)', class: 'text-red-600 hover:text-red-700' 
-                        
-#<td class="px-6 py-4 whitespace-nowrap">
-#    <div class="flex items-center">
-#        <span class="text-sm font-medium text-gray-900">Ainda não foram adicionados posts...</span>
-        
-%>

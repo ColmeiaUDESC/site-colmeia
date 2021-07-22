@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get 'dashboard/posts/:id/edit', to: 'dashboard#edit_post', as: 'edit_post'
   get 'dashboard/users', to: 'dashboard#list_users'
   get 'dashboard/users/:id/edit', to: 'dashboard#edit_user', as: 'edit_user'
-  get 'dashboard/info', to: 'dashboard#edit_info', as:'edit_info'
+  get 'dashboard/info', to: 'dashboard#list_info', as:'list_info'
 
   # Posts
   post 'blog', to: 'posts#create', as: 'posts'
