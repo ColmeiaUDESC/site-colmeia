@@ -1,20 +1,20 @@
 class TagController < ApplicationController
-    before_action :is_bolsista, only: %i[ update destroy ]
-    before_action :not_visitante, only: %i[ create ]
-    before_action :set_tag, only: %i[ update destroy ]
+  before_action :is_bolsista, only: %i[ update destroy ]
+  before_action :not_visitante, only: %i[ create ]
+  before_action :set_tag, only: %i[ update destroy ]
 
   # POST /tag or /tag.json
   def create
     @tag = Tag.new(tag_params)
     puts @tag
-    @tag.nome = @tag.nome.upcase
+    @tag.nome = @tag.nome.upcase.strip
 
     respond_to do |format|
       if @tag.save
         format.html { redirect_to '/dashboard/tags', success: 'Tag criada com sucesso!' }
         format.json { render :show, status: :created, location: @tag }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to '/dashboard/tags', error: "Erro ao criar tag!" }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
     end
@@ -27,7 +27,7 @@ class TagController < ApplicationController
         format.html { redirect_to '/dashboard/tags', success: 'Tag atualizada com sucesso!' }
         format.json { render :show, status: :ok, location: @tag }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_to '/dashboard/tags', error: "Erro ao editar tag!" }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
     end
