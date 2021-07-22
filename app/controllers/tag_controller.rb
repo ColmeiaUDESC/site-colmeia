@@ -35,7 +35,7 @@ class TagController < ApplicationController
 
   # DELETE /tag/1 or /tag/1.json
   def destroy
-    regs = PostsTag.where("tag_id == "+@tag.id)
+    regs = PostsTag.where("tag_id = "+@tag.id.to_s)
     regs.each do |reg|
       reg.destroy
     end
