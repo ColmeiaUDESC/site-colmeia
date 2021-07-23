@@ -3,10 +3,10 @@
       <div class="items-center lg:flex">
           <div class="w-full lg:w-1/2 relative z-10">
               <div class="lg:max-w-lg bg-white p-8 rounded-lg dark:bg-gray-800">
-                  <h1 class="text-2xl font-black lg:text-4xl text-gradient bg-gradient-to-r from-yellow-400 to-yellow-600">Grupo de Extensão em Software e Hardware Livre</h1>
-                  <p class="mt-2 text-black dark:text-gray-200">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro beatae error laborum ab amet sunt recusandae? Reiciendis natus perspiciatis optio.</p>
+                  <h1 class="text-2xl font-black lg:text-4xl text-gradient bg-gradient-to-r from-yellow-400 to-yellow-600 mb-8">Grupo de Extensão em Software e Hardware Livre</h1>
+                  <p class="mt-2 text-black dark:text-gray-200"><%= Link.last.texto %></p>
                   <div class="flex justify-end mt-2">
-                      <button disabled class="px-4 py-2 rounded text-white font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 disabled:opacity-50 disabled:cursor-default">Processo seletivo</button>
+                      <%= link_to Link.last.botao, "http://#{Link.last.link}", :class => "px-4 py-2 rounded text-white font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 disabled:opacity-50 disabled:cursor-default" %>
                   </div>
               </div>
           </div>
@@ -61,7 +61,7 @@
             <h1 class="text-3xl font-bold text-gray-700 dark:text-gray-200">Quem somos?</h1>
             <%= image_tag "colmeiacinza.png", class: "h-12 fotinha-colmeia opacity-10 dark:opacity-100" %>
           </div>
-          <p class="mt-4 text-gray-700 dark:text-gray-200">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor molestie magna vulputate congue. Morbi eu tempor velit. Aliquam pharetra erat dignissim, rutrum erat sit amet, dapibus tellus. Duis sit amet mauris nec erat sollicitudin lacinia sed sed nulla. Duis tempor consectetur elit, sed fringilla libero varius et. Etiam nec fermentum augue, sed bibendum sem. Morbi non diam vitae urna ullamcorper tempus. Quisque quis luctus orci, posuere viverra justo. Ut non ornare odio. Phasellus at consectetur elit. Nullam ut feugiat sapien. Aenean fermentum quis mauris nec porta. Proin fringilla ipsum nec venenatis fermentum. Vestibulum sit amet justo eleifend, ullamcorper arcu quis, pretium tellus. Morbi lacus sapien, faucibus at urna quis, commodo placerat ligula.</p>
+          <p class="mt-4 text-gray-700 dark:text-gray-200"><%= Artefato.last.texto %></p>
           <div class="flex justify-end mt-10">
             <%= link_to 'Visualizar membros ->', membros_path, class: 'font-medium p-2 bg-yellow-300 text-white rounded hover:bg-yellow-400 dark:bg-yellow-400 dark:hover:bg-yellow-500'%>
           </div>
@@ -71,7 +71,7 @@
 
         <div>
           <h1 class="text-3xl font-bold text-gray-700 dark:text-gray-200">História</h1>
-          <p class="mt-4 text-gray-700 dark:text-gray-200">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor molestie magna vulputate congue. Morbi eu tempor velit. Aliquam pharetra erat dignissim, rutrum erat sit amet, dapibus tellus. Duis sit amet mauris nec erat sollicitudin lacinia sed sed nulla. Duis tempor consectetur elit, sed fringilla libero varius et. Etiam nec fermentum augue, sed bibendum sem. Morbi non diam vitae urna ullamcorper tempus. Quisque quis luctus orci, posuere viverra justo. Ut non ornare odio. Phasellus at consectetur elit. Nullam ut feugiat sapien. Aenean fermentum quis mauris nec porta. Proin fringilla ipsum nec venenatis fermentum. Vestibulum sit amet justo eleifend, ullamcorper arcu quis, pretium tellus. Morbi lacus sapien, faucibus at urna quis, commodo placerat ligula.</p>
+          <p class="mt-4 text-gray-700 dark:text-gray-200"><%= Artefato.first.texto %></p>
         </div>
       </div>
     </div>

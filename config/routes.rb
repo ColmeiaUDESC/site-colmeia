@@ -26,6 +26,15 @@ Rails.application.routes.draw do
   get 'dashboard/users', to: 'dashboard#list_users'
   get 'dashboard/users/:id/edit', to: 'dashboard#edit_user', as: 'edit_user'
   get 'dashboard/tags', to: 'dashboard#tags', as: 'dash_tags'
+  get 'dashboard/info', to: 'dashboard#list_info', as:'list_info'
+
+  # Info
+  get 'linker', to: 'dashboard#edit_linker', as: 'edit_linker'
+  put 'linker', to:'link#update', as:"linker_update"
+  get 'historia', to: 'dashboard#edit_historia', as: 'edit_historia'
+  put 'historia', to: 'historia#update', as: 'historia_update'
+  get 'somos', to: 'dashboard#edit_somos', as: 'edit_somos'
+  put 'somos', to: 'somos#update', as: 'somos_update'
 
   # Posts
   post 'blog', to: 'posts#create', as: 'posts'
