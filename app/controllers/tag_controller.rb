@@ -14,7 +14,7 @@ class TagController < ApplicationController
         format.html { redirect_to '/dashboard/tags', success: 'Tag criada com sucesso!' }
         format.json { render :show, status: :created, location: @tag }
       else
-        format.html { redirect_to '/dashboard/tags', error: "Erro ao criar tag!" }
+        format.html { redirect_to '/dashboard/tags', error: @tag.errors.messages[:nome] }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
     end

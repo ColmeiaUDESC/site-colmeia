@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :check_num_tags, only: %i[ create update ]
 
   # GET /posts or /posts.json
   def index
@@ -86,6 +87,13 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def check_num_tags
+      tags = params[:tags].split(',')
+      if tags.length>4 
+        redirect_to '/dashboard/posts', error: 'Erro ao criar post. Tags excedem o limite de 4 tags!'
+      end
     end
 
     # Only allow a list of trusted parameters through.
