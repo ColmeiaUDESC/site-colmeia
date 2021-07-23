@@ -27,6 +27,10 @@ Rails.application.routes.draw do
   get 'dashboard/users/:id/edit', to: 'dashboard#edit_user', as: 'edit_user'
   get 'dashboard/info', to: 'dashboard#list_info', as:'list_info'
 
+  # Info
+  get 'linker', to: 'dashboard#edit_linker', as: 'edit_linker'
+  put 'linker', to:'link#update', as:"linker_update"
+
   # Posts
   post 'blog', to: 'posts#create', as: 'posts'
   get 'blog/:id', to: 'posts#show', as: 'post'
