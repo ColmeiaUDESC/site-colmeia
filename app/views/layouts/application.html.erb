@@ -17,6 +17,11 @@
     %>
     <%= javascript_pack_tag 'application', 'modal', 'data-turbolinks-track': 'reload' %>
     <% end %>
+    <% if request.path.include?('blog/p')
+        # Script para pesquisa de tags
+    %>
+    <%= javascript_pack_tag 'tags', 'data-turbolinks-track': 'reload' %>
+    <% end %>
     <%= stylesheet_pack_tag 'application', 'data-turbo-track': 'reload' %>
 </head>
 

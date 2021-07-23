@@ -12,6 +12,9 @@
                 <li>
                     <%= link_to 'Projetos', projetos_path, :class => current_class?(projetos_path) %>
                 </li>
+                <li>
+                    <%= link_to 'Blog', posts_pag_path(pag: 1), :class => current_blog_class?('/blog/') %>
+                </li>
                 <li><a href="https://github.com/ColmeiaUDESC" target="_newblank" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white rounded hover:bg-gray-900 focus:shadow-outline focus:outline-none dark:hover:bg-gray-800">Github</a></li>
             </ul>
             <%# <a href="/" aria-label="Company" title="Company" class="inline-flex items-center lg:mx-auto">

@@ -1,22 +1,85 @@
 <p id="notice"><%= notice %></p>
+<div class="container mx-auto block py-10 px-4 space-y-10 lg:mt-10 lg:space-y-0 lg:space-x-4 lg:flex">
+  <div class="block w-full lg:w-2/3 space-y-4">
+    <% # For loop para dar print em cada post 
+    if @posts!=[]
+    %>
+    <% @posts.each do |post| %>
+      <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
+        <div class="mt-5 flex justify-between items-center">
+          <%= link_to post.title, post_path(id: post.id), :class =>"text-3xl font-bold text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300"%>
+          <span class="bg-gray-200 text-gray-700 px-2 py-1 font-bold text-sm uppercase">
+            <% tagsPost = post.postsTag.all()
+            if tagsPost!=[]
+              len = tagsPost.length
+              tagsPost.each_with_index do |tagT, index| %>
+                <%= if index+1 < len then link_to tagT.tag.nome+", ", posts_pag_path(pag: 1,tag: tagT.tag.id) else link_to tagT.tag.nome, posts_pag_path(pag: 1,tag: tagT.tag.id) end%>
+              <% end
+            end %>
+          </span>
+        </div>
+        <p class="mt-2 text-gray-700 dark:text-gray-200">Escrito por <%= post.users_name %> em <%= post.created_at %>.</p>
+        <p class="mt-4 text-gray-700 dark:text-gray-200">
+          <%= sanitize post.desc %>
+        </p>
+        <div class="mt-10">
+          <hr class="dark:border-gray-700">
+        </div>
+        <div class="flex justify-end mt-10">
+          <%= link_to "Continue lendo ->", post_path(id: post.id), :class => "font-medium p-4 bg-gray-700 text-white rounded hover:bg-gray-800" %>
+        </div>
+      </div>
+    <% end 
+    else %>
+      <div class="bg-gray-100 p-10 rounded flex-col shadow dark:bg-gray-900">
+        <h1 class="text-2xl font-bold text-gray-700 dark:text-gray-200">Que pena, não há posts 😞</h1>
+      </div>
+    <% end %>
+  </div>
 
-<% # For loop para dar print em cada post 
-if @posts!=[]
-%>
-<% @posts.each do |post| %>
-  <%= link_to post.title, post_path(id: post.id), :class =>"text-3xl font-bold text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300"%>
-  <p class="mt-2 text-gray-700 dark:text-gray-200">Escrito por <%= post.users_name %> em <%= post.created_at.localtime %>.</p>
-  <%= sanitize post.desc %>
-  <% # Fazer botao para levar ao post  post/id 
-  %>
-<% end 
-else %>
-    <h1 class="text-2xl font-bold text-gray-700 dark:text-gray-200">Que pena, não há posts 😞</h1>
-<% end %>
+  <hr class="dark:border-gray-700">
 
-<% if @pag>1 %>
-<%= link_to 'Voltar pag', posts_pag_path(pag: @pag-1,tag: @tag) %>
-<% end %>
-<% if @posts!=[] %>
-<%= link_to 'Proxima pag', posts_pag_path(pag: @pag+1,tag: @tag) %>
-<% end %>
+  <div class="w-full lg:w-1/3 h-full bg-gray-100 p-10 rounded shadow dark:bg-gray-900">
+      <div class="space-y-10">
+        <div>
+          <div class="flex justify-between">
+            <h1 class="text-3xl font-bold text-gray-700 dark:text-gray-200">Pesquisar por tags</h1>
+            <%= image_tag "colmeiacinza.png", class: "h-12 fotinha-colmeia opacity-10 dark:opacity-100" %>
+          </div>
+          <div class="flex-row mt-2">
+          <% tags = Tag.all.order(nome: :desc)
+          if tags!=[]
+            if @tag
+              @tagsA = @tag.split('e')
+              def tagAtiva(id)
+                @tagsA.each do |tagT| 
+                  if tagT.to_i==id.to_i then return "checked" end
+                end
+                return ""
+              end
+            end
+            tags.each_with_index do |tag, index| %>
+              <div class="text-gray-500 font-bold flex-1 inline-flex items-center mr-2">
+                <input class="mr-1 leading-tight inline-flex tagsCheck" <%= if @tag then tagAtiva(tag.id) end%> id="tag_<%=tag.id%>" value="<%= tag.id %>" type="checkbox">
+                <p class="text-sm" for="tag_<%=tag.id%>"><%= tag.nome %></p>
+              </div>
+            <% end else %>
+            <span class="text-gray-500 font-bold text-sm">Nenhuma tag cadastrada!</span>
+          <% end %>
+          </div>
+          <div class="flex justify-end mt-10">
+            <button onclick="pesquisarTags()" type="button" class="font-medium p-2 bg-yellow-300 text-white rounded hover:bg-yellow-400 dark:bg-yellow-400 dark:hover:bg-yellow-500">Pesquisar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+<div class="container mx-auto block py-2 px-4 space-y-2 lg:my-2 lg:space-y-0 lg:space-x-4 lg:flex">
+  <% if @pag>1 %>
+  <%= link_to 'Voltar pag', posts_pag_path(pag: @pag-1,tag: @tag), :class => 'border border-teal-500 text-teal-500 block rounded-sm font-bold py-4 px-6 mr-2 flex items-center hover:bg-teal-500 text-gray-700 hover:text-gray-900' %>
+  <% end %>
+  <% if @posts.length==4 %>
+  <%= link_to 'Proxima pag', posts_pag_path(pag: @pag+1,tag: @tag), :class => 'border border-teal-500 bg-teal-500 text-gray-700 hover:text-gray-900 block rounded-sm font-bold py-4 px-6 ml-2 flex items-center' %>
+  <% end %>
+</div>

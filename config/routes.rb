@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'dashboard/posts/:id/edit', to: 'dashboard#edit_post', as: 'edit_post'
   get 'dashboard/users', to: 'dashboard#list_users'
   get 'dashboard/users/:id/edit', to: 'dashboard#edit_user', as: 'edit_user'
+  get 'dashboard/tags', to: 'dashboard#tags', as: 'dash_tags'
   get 'dashboard/info', to: 'dashboard#list_info', as:'list_info'
 
   # Info
@@ -54,5 +55,5 @@ Rails.application.routes.draw do
   # Tag
   post 'tag', to: 'tag#create', as: 'tag'
   put 'tag/:id', to: 'tag#update', as: 'tag_update'
-  delete 'tag/:id', to: 'tag#update', as: 'tag_destroy'
+  delete 'tag/:id', to: 'tag#destroy', as: 'tag_destroy'
 end
