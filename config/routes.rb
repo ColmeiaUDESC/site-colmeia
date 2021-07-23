@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   # Info
   get 'linker', to: 'dashboard#edit_linker', as: 'edit_linker'
   put 'linker', to:'link#update', as:"linker_update"
+  get 'historia', to: 'dashboard#edit_historia', as: 'edit_historia'
+  put 'historia', to: 'historia#update', as: 'historia_update'
+  get 'somos', to: 'dashboard#edit_somos', as: 'edit_somos'
+  put 'somos', to: 'somos#update', as: 'somos_update'
 
   # Posts
   post 'blog', to: 'posts#create', as: 'posts'

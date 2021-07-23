@@ -1,6 +1,6 @@
 <h1 class="text-2xl text-gray-700 font-bold">Edição do linker</h1>
 
-<%= form_with url: linker_update_path(id:1), method: 'put' do |form| %>
+<%= form_with url: linker_update_path, method: 'put' do |form| %>
   <div class="mt-4">
     <%= form.label :texto, 'Texto', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200'%>
     <%= form.text_field :texto, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600' %>
@@ -14,6 +14,6 @@
     <%= form.text_field :link, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600' %>
   </div>
   <div class="mt-4">
-    <%= form.submit %>
+    <%= form.submit "Salvar edições", class: 'bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer'  %>
   </div>
 <% end %>

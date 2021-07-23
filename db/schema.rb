@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_22_154024) do
+ActiveRecord::Schema.define(version: 2021_07_23_014418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artefatos", force: :cascade do |t|
+    t.string "texto"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "comentarios", force: :cascade do |t|
     t.string "comentario", null: false

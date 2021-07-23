@@ -33,6 +33,14 @@ class DashboardController < ApplicationController
       @page_title = 'Colmeia | Edição de informações'
     end
 
+    def edit_historia
+      @page_title = 'Colmeia | Edição de Historia'
+    end
+
+    def edit_somos
+      @page_title = 'Colmeia | Edição de Quem somos'
+    end
+
     def edit_linker
       @page_title = 'Colmeia | Edição de Linker'
     end
