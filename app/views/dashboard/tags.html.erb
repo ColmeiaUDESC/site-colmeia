@@ -13,16 +13,56 @@
               </div>
             <% end %>
             <div class="my-2 mx-3">
-            <ul>
-              <% tags = Tag.all.order(nome: :desc)
-              if tags!=[]
-                tags.each_with_index do |tag, index| %>
-                <li onclick="modalToggle( <%=tag.id.to_s%>, 4)" class="py-1 inline-flex items-center cursor-pointer transition duration-300 text-sm ease-in-out rounded-2xl mr-1 my-2 px-2 py-1 hover:bg-red-300 bg-gray-200 text-gray-500 hover:text-gray-800">
-                  <p>#<%=tag.nome%></p>
-                  <span class="bg-white p-0.5 rounded-full text-blue-600 text-xs ml-2"><%=PostsTag.where(:tag_id => tag.id.to_i).count%></span>
-                </li>
-              <% end end %>
-            </ul>
+              <ul>
+                <% tags = Tag.all.order(nome: :desc)
+                if tags!=[]
+                  tags.each_with_index do |tag, index| %>
+                  <li onclick="modalToggle( <%=tag.id.to_s%>, 4)" class="py-1 inline-flex items-center cursor-pointer transition duration-300 text-sm ease-in-out rounded-2xl mr-1 my-2 px-2 py-1 hover:bg-red-300 bg-gray-200 text-gray-500 hover:text-gray-800">
+                    <p>#<%=tag.nome%></p>
+                    <span class="bg-white p-0.5 rounded-full text-blue-600 text-xs ml-2"><%=PostsTag.where(:tag_id => tag.id.to_i).count%></span>
+                  </li>
+                <% end end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-10">
+    <div class="flex flex-col">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            <%= form_with url: tag_to_posts_path, method: 'put', class: 'mt-2', id: 'tagToPostsForm' do |form| %>
+              <div class="mb-4 inline-flex items-center space-x-2">
+                <%= form.label :tag, 'Designar tag a posts', class: 'text-gray-700 text-md font-bold mx-2 dark:text-gray-200' %>
+                <% tags = Tag.all
+                  colection = []
+                  tags.each_with_index do |tag, index|
+                    colection[index] = [tag.nome,tag.id.to_s]
+                  end
+                %>
+                <%= form.select(:tag, colection, {}, { :class => 'shadow appearance-none border rounded py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600'})%>
+                <%= form.text_field :posts, hidden: true %>
+                <%= form.submit "Salvar", class: 'bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer' %>
+              </div>
+            <% end %>
+            <div class="my-2 mx-3">
+              <div class="flex-row mt-2">
+                <% posts = Post.all
+                if posts!=[]
+                  posts.each do |post| %>
+                    <div class="text-gray-500 font-bold flex-1 inline-flex items-center mr-2">
+                      <input class="mr-1 leading-tight inline-flex postsCheck" <%= if (PostsTag.where(:post_id => post.id.to_i).count == 4) then 'disabled="true"' end%> value="<%= post.id %>" type="checkbox">
+                      <p class="text-sm" for="tag_<%=post.id%>"><%= post.title %></p>
+                    </div>
+                <% end else %>
+                  <span class="text-gray-500 font-bold text-sm">Nenhum post cadastrado!</span>
+                <% end %>
+                <input>
+              </div>
+            </div>
           </div>
         </div>
       </div>

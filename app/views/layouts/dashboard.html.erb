@@ -20,6 +20,11 @@
         <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <%= javascript_pack_tag 'application', 'tinyMCE', 'tags', 'data-turbolinks-track': 'reload' %>
     <% end %>
+    <% if request.path.include?(dash_tags_path)
+        # Script da tag 
+    %>
+    <%= javascript_pack_tag 'application', 'tags', 'data-turbolinks-track': 'reload' %>
+    <% end %>
 
     <%= stylesheet_pack_tag 'application', 'data-turbo-track': 'reload' %>
 </head>
