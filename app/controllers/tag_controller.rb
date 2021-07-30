@@ -1,6 +1,6 @@
 class TagController < ApplicationController
   before_action :is_bolsista, only: %i[ update destroy ]
-  before_action :not_visitante, only: %i[ create ]
+  before_action :not_visitante, only: %i[ create tagToPosts destroy ]
   before_action :set_tag, only: %i[ update destroy ]
 
   # POST /tag or /tag.json
@@ -21,15 +21,16 @@ class TagController < ApplicationController
   end
 
   # PATCH/PUT /tag/1 or /tag/1.json
-  def update
-    respond_to do |format|
-      if @tag.update(nome: params[:nome].upcase)
-        format.html { redirect_to '/dashboard/tags', success: 'Tag atualizada com sucesso!' }
-        format.json { render :show, status: :ok, location: @tag }
-      else
-        format.html { redirect_to '/dashboard/tags', error: "Erro ao editar tag!" }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
+  def tagToPosts
+    posts = params[:posts].split(',')
+    posts.each do |post|
+      if (!PostsTag.exists?(post_id: post, tag_id: params[:tag].to_s) && PostsTag.where(:post_id => post).count < 4)
+        PostsTag.create(post_id: post, tag_id: params[:tag])
       end
+    end
+    respond_to do |format|
+      format.html { redirect_to '/dashboard/tags', success: 'Tag adicionada com sucesso!' }
+      format.json { head :no_content }
     end
   end
 

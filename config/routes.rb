@@ -54,6 +54,6 @@ Rails.application.routes.draw do
 
   # Tag
   post 'tag', to: 'tag#create', as: 'tag'
-  put 'tag/:id', to: 'tag#update', as: 'tag_update'
+  put 'tag', to: 'tag#tagToPosts', as: 'tag_to_posts'
   delete 'tag/:id', to: 'tag#destroy', as: 'tag_destroy'
 end
