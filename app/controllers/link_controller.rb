@@ -5,11 +5,11 @@ class LinkController < ApplicationController
     def update
         respond_to do |format|
             if @linker.update(linker_params)
-              format.html { redirect_to edit_linker_path, success: 'Linker atualizado com sucesso!' }
+              format.html { redirect_to list_info_path, success: 'Linker atualizado com sucesso!' }
               format.json { render :show, status: :ok, location: @linker }
             else
-              format.html { render :edit, status: :unprocessable_entity }
-              format.json { render json: @linker.errors, status: :unprocessable_entity }
+              format.html { redirect_to list_info_path, error: @linker.errors.messages.first.second }
+              format.json { render json: @linker.errors, error: @linker.errors.messages.first.second }
             end
         end
     end

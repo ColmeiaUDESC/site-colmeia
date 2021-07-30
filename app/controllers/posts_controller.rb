@@ -35,11 +35,11 @@ class PostsController < ApplicationController
         tags.each do |tag|
           @post.postsTag.create(post_id: @post.id, tag_id: tag)
         end
-        format.html { redirect_to '/dashboard/posts', success: 'Post criado com sucesso!' }
+        format.html { redirect_to dashboard_posts_path, success: 'Post criado com sucesso!' }
         format.json { render :show, status: :created, location: @post }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.html { redirect_to dashboard_posts_path, error: @post.errors.messages.first.second }
+        format.json { render json: @post.errors, error: @post.errors.messages.first.second}
       end
     end
   end
@@ -78,7 +78,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to '/dashboard/posts', success: 'Post destruido com sucesso!' }
+      format.html { redirect_to dashboard_posts_path, success: 'Post destruido com sucesso!' }
       format.json { head :no_content }
     end
   end
@@ -92,7 +92,7 @@ class PostsController < ApplicationController
     def check_num_tags
       tags = params[:tags].split(',')
       if tags.length>4 
-        redirect_to '/dashboard/posts', error: 'Erro ao criar post. Tags excedem o limite de 4 tags!'
+        redirect_to dashboard_posts_path, error: 'Erro ao criar post. Tags excedem o limite de 4 tags!'
       end
     end
 

@@ -2,6 +2,7 @@ class TagController < ApplicationController
   before_action :is_bolsista, only: %i[ update destroy ]
   before_action :not_visitante, only: %i[ create tagToPosts destroy ]
   before_action :set_tag, only: %i[ update destroy ]
+  before_action :tag_not_null, only: %i[ tagToPosts ]
 
   # POST /tag or /tag.json
   def create
@@ -63,6 +64,12 @@ class TagController < ApplicationController
       if Current.user.situacao=="Visitante"
         redirect_to request.referer, error: "Permissão negada!"
       end    
+    end
+
+    def tag_not_null
+      if params[:posts]==""
+        redirect_to request.referer, error: "Tag inválida!"
+      end
     end
 
     # Only allow a list of trusted parameters through.
