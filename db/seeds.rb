@@ -20,3 +20,6 @@
 #data_de_inicio:date
 
 User.create(nome:"admin", sobrenome:"admin", email:"admin@admin.com", password:"DevEnv", situacao:"Bolsista", github_username: 'joaodematte', twitter_username: 'joaodematte', instagram_username: 'joaodematte', discord_username: '689272830038245420')
+Artefato.create(texto:"Somos pessoas dedicadas!")
+Artefato.create(texto:"Tivemos historias sim!")
+Link.create(texto:"Texto", botao:"Enviar", link:"www.udesc.br/cct")
