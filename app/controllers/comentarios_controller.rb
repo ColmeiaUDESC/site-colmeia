@@ -14,7 +14,7 @@ class ComentariosController < ApplicationController
           format.html { redirect_to post_path(id: params[:post_id]), success: 'Comentario criado com sucesso!' }
           format.json { render :show, status: :created, location: @comentario }
         else
-          format.html { redirect_to post_path(id: params[:post_id]), error: @comentario.errors.full_messages}
+          format.html { redirect_to post_path(id: params[:post_id]), error: @comentario.errors.messages.first.second}
           format.json { render json: @comentario.errors, status: :unprocessable_entity }
         end
       end
@@ -25,7 +25,7 @@ class ComentariosController < ApplicationController
     def destroy
       @comentario.destroy
       respond_to do |format|
-        format.html { redirect_to request.referer, success: 'Post destruido com sucesso!' }
+        format.html { redirect_to request.referer, success: 'Comentário destruido com sucesso!' }
         format.json { head :no_content }
       end
     end

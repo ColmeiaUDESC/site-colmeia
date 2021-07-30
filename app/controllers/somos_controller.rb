@@ -8,8 +8,8 @@ class SomosController < ApplicationController
               format.html { redirect_to list_info_path, success: 'Quem somos atualizado com sucesso!' }
               format.json { render :show, status: :ok, location: @somos }
             else
-              format.html { render :edit, status: :unprocessable_entity }
-              format.json { render json: @somos.errors, status: :unprocessable_entity }
+              format.html { redirect_to list_info_path, error: @somos.errors.messages.first.second }
+              format.json { render json: @somos.errors, error: @somos.errors.messages.first.second }
             end
         end
     end

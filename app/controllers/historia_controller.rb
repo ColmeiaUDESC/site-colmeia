@@ -8,8 +8,8 @@ class HistoriaController < ApplicationController
               format.html { redirect_to list_info_path, success: 'História atualizada com sucesso!' }
               format.json { render :show, status: :ok, location: @historia }
             else
-              format.html { render :edit, status: :unprocessable_entity }
-              format.json { render json: @historia.errors, status: :unprocessable_entity }
+              format.html { redirect_to list_info_path, error: @historia.errors.messages.first.second }
+              format.json { render json: @historia.errors, error: @historia.errors.messages.first.second }
             end
         end
     end

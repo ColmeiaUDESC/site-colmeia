@@ -28,6 +28,9 @@
 <body>
     <div class="flex flex-col min-h-screen bg-white dark:bg-gray-800">
         <%= render partial: "shared/navbar" %>
+        <% if !flash.empty?%>
+            <%= render partial: "shared/alert"%>
+        <%end%>
         <%= yield %>
         <%= render partial: "shared/footer" %>
     </div>
