@@ -86,6 +86,7 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <%= link_to 'Editar', edit_senha_path(id: senha.id), class: 'text-gray-700 hover:text-gray-800 mr-2' %>
+                            <%= button_tag 'Excluir', type: 'button', :onclick => 'modalToggle(' + senha.id.to_s + ', 4)', class: 'text-red-600 hover:text-red-700' %>
                         </td>
                         </tr>
                     <% end %>

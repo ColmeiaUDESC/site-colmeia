@@ -31,4 +31,13 @@ class SenhaController < ApplicationController
       end
     end
 
+    def destroy
+      Senha.find(params[:id]).destroy
+
+      respond_to do |format|
+        format.html { redirect_to dashboard_posts_path, success: 'Senha removida com sucesso!' }
+        format.json { head :no_content }
+      end
+    end
+
 end
