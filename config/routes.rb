@@ -56,4 +56,12 @@ Rails.application.routes.draw do
   post 'tag', to: 'tag#create', as: 'tag'
   put 'tag', to: 'tag#tagToPosts', as: 'tag_to_posts'
   delete 'tag/:id', to: 'tag#destroy', as: 'tag_destroy'
+
+  # Senhas
+  get 'dashboard/senha', to: 'dashboard#senhas', as:'senhas'
+  post 'senha', to: 'senha#create', as: 'senha_add'
+  get 'dashboard/senha/:id/edit', to: 'dashboard#edit_senha', as: 'edit_senha'
+  put 'senha/:id', to: 'senha#update', as: 'senha_update'
+  delete 'senha/:id', to: 'senha#destroy', as: 'senha_destroy'
+  
 end
