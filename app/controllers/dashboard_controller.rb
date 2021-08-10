@@ -44,4 +44,8 @@ class DashboardController < ApplicationController
     def edit_linker
       @page_title = 'Colmeia | Edição de Linker'
     end
+
+    def projetos
+      @page_title = 'Colmeia | Projetos'
+    end
 end

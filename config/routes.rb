@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   get 'dashboard/users/:id/edit', to: 'dashboard#edit_user', as: 'edit_user'
   get 'dashboard/tags', to: 'dashboard#tags', as: 'dash_tags'
   get 'dashboard/info', to: 'dashboard#list_info', as:'list_info'
+  get 'dashboard/projetos', to: 'dashboard#projetos', as:'dash_proj'
+  get 'dashboard/projetos/new', to: 'dashboard#new_proj', as:'new_proj'
+  get 'dashboard/projetos/:id/edit', to: 'dashboard#edit_proj', as:'edit_proj'
 
   # Info
   get 'linker', to: 'dashboard#edit_linker', as: 'edit_linker'
@@ -56,4 +59,9 @@ Rails.application.routes.draw do
   post 'tag', to: 'tag#create', as: 'tag'
   put 'tag', to: 'tag#tagToPosts', as: 'tag_to_posts'
   delete 'tag/:id', to: 'tag#destroy', as: 'tag_destroy'
+
+  # Projeto
+  post 'projeto', to: 'projetos#create', as: 'proj'
+  put 'projeto/:id', to: 'projetos#update', as: 'proj_update'
+  delete 'projeto/:id', to: 'projetos#destroy', as: 'proj_destroy'
 end

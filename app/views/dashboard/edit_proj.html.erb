@@ -1,0 +1,37 @@
+<%
+  @proj = Projeto.find(params[:id])
+%>
+<div>
+  <h1 class="text-2xl text-gray-700 font-bold">
+    Edição do projeto ID: <span class="bg-yellow-400 text-yellow-700 px-2 py-1 font-bold uppercase rounded"><%= @proj.id %></span>
+  </h1>
+  <%= form_with url: proj_update_path(id: params[:id]), method: 'put', class: 'mt-10', id: 'postForm' do |form| %>
+    <div class="mb-4">
+      <%= form.label :titulo, 'Título da projeto', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_field :titulo, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+        value: @proj.titulo %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :desc, 'Descrição da projeto', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_area :desc, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+        value: @proj.desc %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :img_url, 'Imagem Url', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_field :img_url, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+        value: @proj.img_url %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :git_url, 'Github Url', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_field :git_url, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+        value: @proj.git_url %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Salvar projeto", class: 'bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer' %>
+    </div>
+  <% end %>
+</div>
