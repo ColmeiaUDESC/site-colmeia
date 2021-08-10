@@ -1,0 +1,44 @@
+<%
+  @senha = Senha.find(params[:id])
+%>
+    <!-- 
+    string "plataforma"
+    string "link"
+    string "usuario"
+    string "senha" 
+    -->
+<div>
+  <h1 class="text-2xl text-gray-700 font-bold">
+    Edição de senha ID: <span class="bg-yellow-400 text-yellow-700 px-2 py-1 font-bold uppercase rounded"><%= @senha.id %></span>
+  </h1>
+  <%= form_with url: senha_update_path(id: params[:id]), method: 'put', class: 'mt-10' do |form| %>
+    <div class="mb-4">
+      <%= form.label :plataforma, 'Plataforma', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_field :plataforma, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+        value: @senha.plataforma %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :link, 'Link', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_field :link, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+        value: @senha.link %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :usuario, 'Usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_field :usuario, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+        value: @senha.usuario %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :senha, 'Senha', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+      <%= form.text_field :senha, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600',
+        value: @senha.senha %>
+    </div>
+
+
+    <div class="actions">
+      <%= form.submit "Salvar alterações", class: 'bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer' %>
+    </div>
+  <% end %>
+</div>

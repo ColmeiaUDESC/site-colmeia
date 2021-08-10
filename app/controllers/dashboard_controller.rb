@@ -44,4 +44,8 @@ class DashboardController < ApplicationController
     def edit_linker
       @page_title = 'Colmeia | Edição de Linker'
     end
+
+    def senhas
+      @page_title = 'Colmeia | Banco de senhas'
+    end
 end
