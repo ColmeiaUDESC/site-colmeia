@@ -13,18 +13,18 @@ let modal = (id, modalType) => `
         </div>
         <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
           <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-            ${modalType == 0 ? 'Excluir post' : (modalType == 1 ? 'Excluir usuário' : (modalType == 2 ? 'Excluir comentário' : 'Excluir tag'))}
+            ${modalType == 0 ? 'Excluir post' : (modalType == 1 ? 'Excluir usuário' : (modalType == 2 ? 'Excluir comentário' : (modalType == 3 ? 'Excluir tag' : (modalType == 4 ? 'Excluir senha' : 'Excluir projeto'))))}
           </h3>
           <div class="mt-2">
             <p class="text-sm text-gray-500">
-              Você tem certeza que deseja excluir esse ${modalType == 0 ? 'post' : (modalType == 1 ? 'usuário' : (modalType == 2 ? 'comentário' : 'tag'))}? Essa ação não poderá ser desfeita.
+              Você tem certeza que deseja excluir esse ${modalType == 0 ? 'post' : (modalType == 1 ? 'usuário' : (modalType == 2 ? 'comentário' : (modalType == 3 ? 'tag' : (modalType == 4 ? 'senha' : 'projeto'))))}? Essa ação não poderá ser desfeita.
             </p>
           </div>
         </div>
       </div>
     </div>
     <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-      <a rel="nofollow" data-method="delete" href="/${modalType == 0 ? 'blog' : (modalType == 1 ? 'user' : (modalType == 2 ? 'comentario' : 'tag'))}/${id}" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+      <a rel="nofollow" data-method="delete" href="/${modalType == 0 ? 'blog' : (modalType == 1 ? 'user' : (modalType == 2 ? 'comentario' : (modalType == 3 ? 'tag' : (modalType == 4 ? 'senha' : 'projeto'))))}/${id}" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
         Excluir
       </a>
       <button id="closeModal" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">

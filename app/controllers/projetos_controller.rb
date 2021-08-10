@@ -29,7 +29,7 @@ class ProjetosController < ApplicationController
         format.html { redirect_to dash_proj_path, success: 'Projeto atualizado com sucesso!' }
         format.json { render :show, status: :ok, location: @proj }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_to dash_proj_path, error: @proj.errors.messages.first.second }
         format.json { render json: @proj.errors, status: :unprocessable_entity }
       end
     end

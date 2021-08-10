@@ -1,1 +1,17 @@
-<%=@projetos.first.inspect%>
+<div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 lg:px-10 py-10">
+        <% @projetos.each do |projeto| %>
+        <div class="w-full bg-gray-100 rounded relative text-center p-10 dark:bg-gray-900 shadow">
+
+            <% ## projeto.img_url imagem %>
+            <% if projeto.img_url != "" && projeto.img_url != nil %>
+            <%= image_tag('abelha.png', class:"h-36 w-36 mx-auto")%>
+            <% end %>
+            <div class="mt-4">
+                <%= link_to projeto.titulo, "http://#{projeto.git_url}", :class =>"text-2xl font-bold text-gray-800 dark:text-gray-200"%>
+                <p class="text-lg font-medium text-gray-600 dark:text-gray-200"><%= projeto.desc %></p>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
