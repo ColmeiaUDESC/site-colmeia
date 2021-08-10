@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 2021_08_10_185355) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "senhas", force: :cascade do |t|
+    t.string "plataforma"
+    t.string "link"
+    t.string "usuario"
+    t.string "senha"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "nome", null: false
     t.datetime "created_at", precision: 6, null: false

@@ -47,5 +47,9 @@ class DashboardController < ApplicationController
 
     def projetos
       @page_title = 'Colmeia | Projetos'
+    end 
+    
+    def senhas
+      @page_title = 'Colmeia | Banco de senhas'
     end
 end

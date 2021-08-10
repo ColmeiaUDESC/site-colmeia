@@ -1,0 +1,103 @@
+<div id="modalPlace"></div>
+<div>
+  <div class="mt-4">
+    <div class="flex flex-col">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <%= form_with url: senha_add_path, method: 'post', class: 'mt-2 ml-4', id: 'postForm' do |form| %>
+                    <h1 class="text-2xl text-gray-700 font-bold mb-4">Adicionar senhas ao banco:</h1>
+                    <div class="mb-4 inline-flex items-center space-x-2">
+                        <%= form.label :plataforma, 'Plataforma', class: 'text-gray-700 text-md font-bold mx-2 dark:text-gray-200' %>
+                        <%= form.text_field :plataforma, class: 'shadow appearance-none border rounded py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600' %>
+                    </div>
+                    <div class="mb-4 inline-flex items-center space-x-2">
+                        <%= form.label :link, 'Link', class: 'text-gray-700 text-md font-bold mx-2 dark:text-gray-200' %>
+                        <%= form.text_field :link, class: 'shadow appearance-none border rounded py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600' %>
+                    </div>
+                    <div class="mb-4 inline-flex items-center space-x-2">
+                        <%= form.label :usuario, 'Usuário', class: 'text-gray-700 text-md font-bold mx-2 dark:text-gray-200' %>
+                        <%= form.text_field :usuario, class: 'shadow appearance-none border rounded py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600' %>
+                    </div>
+                    <div class="mb-4 inline-flex items-center space-x-2">
+                        <%= form.label :senha, 'Senha', class: 'text-gray-700 text-md font-bold mx-2 dark:text-gray-200' %>
+                        <%= form.text_field :senha, class: 'shadow appearance-none border rounded py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600' %>
+                    </div>
+                    <div class = "ml-6 mb-4 inline-flex items-center space-x-2">
+                    <%= form.submit "Salvar", class: 'bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer' %>
+                    </div>
+                <% end %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="ml-4 mt-10">
+    <h2 class="text-gray-700 font-bold">Senhas</h1>
+    <div class="mt-3 Post-it">
+      <div class="flex flex-col">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Plataforma
+                    </th>
+                    <th scope="col" class="relative px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Usuário
+                    </th>
+                    <th scope="col" class="relative px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Senha
+                    </th>
+                    <th scope="col" class="relative px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <span class="sr-only"></span>
+                    </th>
+                    <th scope="col" class="relative px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <span class="sr-only"></span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-x">
+                <% @senha = Senha.all %>
+                <% if @senha != [] %>
+                    <% @senha.each do |senha| %>
+                        <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="relative px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                            <%= link_to senha.plataforma, senha.link, class: 'text-gray-700 hover:text-gray-800 mr-2', target: :_blank %>
+                            </div>
+                        </td>
+                        <td scope="col" class="relative px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                            <%= senha.usuario %>
+                        </td>
+                        <td scope="col" class="relative px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                            <p id="senha_<%= senha.id %>"><%= "*" * senha.senha.length %></p>
+                        </td>
+                        <td scope="col" class="relative px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                            <% # <p onclick='myFunction()' id="func">func</p> %>
+                            <p class="cursor-pointer", onclick='document.getElementById("senha_<%= senha.id %>").textContent = "<%= senha.senha %>"'>Mostrar</p>
+                            <p class="cursor-pointer", onclick='document.getElementById("senha_<%= senha.id %>").textContent = "<%= "*" * senha.senha.length %>"'>Ocultar</p>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <%= link_to 'Editar', edit_senha_path(id: senha.id), class: 'text-gray-700 hover:text-gray-800 mr-2' %>
+                            <%= button_tag 'Excluir', type: 'button', :onclick => 'modalToggle(' + senha.id.to_s + ', 4)', class: 'text-red-600 hover:text-red-700' %>
+                        </td>
+                        </tr>
+                    <% end %>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
