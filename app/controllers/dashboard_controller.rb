@@ -51,5 +51,9 @@ class DashboardController < ApplicationController
     
     def senhas
       @page_title = 'Colmeia | Banco de senhas'
+
+      if Current.user.situacao != 'Bolsista'
+        redirect_to dashboard_path
+      end
     end
 end
