@@ -1,13 +1,11 @@
 <%
   @posts_count = Post.count
   @users_count = User.count
-
-  @members_count = @users_count - (User.where(:situacao => 'Visitante').count)
-
   @comments_count = Comentario.count
   @tags_count = Tag.count
+  @projects_count = Projeto.count
 
-
+  @members_count = @users_count - (User.where(:situacao => 'Visitante').count)
 %>
 
 <div>
@@ -44,7 +42,7 @@
       </div>
       <div class="flex flex-col">
         <span class="text-indigo-800 font-bold ml-auto text-sm">Projetos cadastrados</span>
-        <span class="text-indigo-800 font-bold text-6xl ml-auto">null</span>
+        <span class="text-indigo-800 font-bold text-6xl ml-auto"><%= @projects_count %></span>
       </div>
     </div>
     <div class="flex justify-between items-center h-36 bg-blue-300 py-5 px-5 rounded border-4 border-blue-400">
