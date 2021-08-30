@@ -45,7 +45,15 @@ class DashboardController < ApplicationController
       @page_title = 'Colmeia | Edição de Linker'
     end
 
+    def projetos
+      @page_title = 'Colmeia | Projetos'
+    end 
+    
     def senhas
       @page_title = 'Colmeia | Banco de senhas'
+
+      if Current.user.situacao != 'Bolsista'
+        redirect_to dashboard_path
+      end
     end
 end
