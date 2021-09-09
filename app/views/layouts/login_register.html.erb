@@ -11,16 +11,14 @@
 
     <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap',
       media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'closetoast', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbo-track': 'reload' %>
 </head>
 
 <body>
     <div class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-300">
         <% if !flash.empty?%>
-        <div class="mb-8 max-w-md w-full">
             <%= render partial: "shared/alert"%>
-        </div>
         <%end %>
         <%= yield %>
     </div>
