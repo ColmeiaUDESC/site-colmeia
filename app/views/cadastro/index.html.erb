@@ -6,28 +6,28 @@
             <div class="flex space-x-4">
                 <div>
                     <%= form.label :nome, "Nome", class:"block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" %>
-                    <%= form.text_field :nome, placeholder:"Nome", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" %>
+                    <%= form.text_field :nome, placeholder:"Nome", class:"shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
                 </div>
                 <div>
                     <%= form.label :sobrenome, "Sobrenome", class:"block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" %>
-                    <%= form.text_field :sobrenome, placeholder:"Sobrenome", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" %>
+                    <%= form.text_field :sobrenome, placeholder:"Sobrenome", class:"shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
                 </div>
             </div>
         </div>
         <div class="mb-4">
             <%= form.label :email, "Email", class:"block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" %>
-            <%= form.email_field :email, placeholder:"Email", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" %>
+            <%= form.email_field :email, placeholder:"Email", class:"shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
         <div class="mb-4">
             <%= form.label :password, "Senha", class:"block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" %>
-            <%= form.password_field :password, placeholder:"********", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" %>
+            <%= form.password_field :password, placeholder:"********", class:"shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
         <div class="mb-4">
             <%= form.label :password_confirmation, "Confirmação de Senha", class:"block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200" %>
-            <%= form.password_field :password_confirmation, placeholder:"********", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" %>
+            <%= form.password_field :password_confirmation, placeholder:"********", class:"shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
         <div class="mb-4">
-            <%= form.submit "Enviar", class:"bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"%>
+            <%= form.submit "Enviar", class:"bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full cursor-pointer"%>
         </div>
         <%= link_to '<- Ir à página de login', login_path, class: 'inline-block align-baseline font-bold text-sm text-gray-700 hover:text-gray-800 mt-2 dark:text-gray-200 dark:hover:text-gray-300' %>
         <% end %>

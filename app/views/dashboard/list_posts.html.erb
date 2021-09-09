@@ -1,6 +1,9 @@
 <div id="modalPlace"></div>
 <div>
-  <h1 class="text-2xl text-gray-700 font-bold">Listagem de posts</h1>
+  <div class="flex justify-between items-center">
+    <h1 class="text-2xl text-gray-700 font-bold">Listagem de posts</h1>
+    <%= link_to 'Criar novo post +', dashboard_posts_new_path, class: 'font-medium p-2 bg-yellow-300 text-white rounded hover:bg-yellow-400 dark:bg-yellow-400 dark:hover:bg-yellow-500'%>
+  </div>
   <div class="mt-10">
     <div class="flex flex-col">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
