@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2021_08_10_185355) do
 
   # These are extensions that must be enabled in order to support this database
@@ -53,7 +52,6 @@ ActiveRecord::Schema.define(version: 2021_08_10_185355) do
     t.bigint "post_id", null: false
     t.bigint "tag_id", null: false
   end
-
 
   create_table "projetos", force: :cascade do |t|
     t.string "titulo"
