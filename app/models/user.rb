@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
     validates_presence_of :nome, :message => "não pode ser em branco!"
     validates_presence_of :sobrenome , :message => "não pode ser em branco!"
+    validates_confirmation_of :password, :message => "senhas não batem!"
+    validates_confirmation_of :password_confirmation, :message => "senhas não batem!"
     validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'em formato inválido' }
     has_many :comentario
 end

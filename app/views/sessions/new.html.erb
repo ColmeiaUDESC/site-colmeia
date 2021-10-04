@@ -11,9 +11,7 @@
     </div>
     <div class="flex items-center justify-between">
         <div class="flex flex-col">
-            <a class="inline-block align-baseline font-bold text-sm text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300" href="#">
-                Esqueceu sua senha?
-            </a>
+            <%= link_to 'Esqueceu sua senha?', esqueci_path(id: 'email'), class: 'inline-block align-baseline font-bold text-sm text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300' %>
             <%= link_to 'Ir à página de registro ->', cadastro_path, class: 'inline-block align-baseline font-bold text-sm text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300' %>
         </div>
         <%= form.submit "Login", class: 'bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer' %>

@@ -52,6 +52,7 @@ Rails.application.routes.draw do
 
   # User
   put 'user/:id', to: 'user#update', as: 'user_update'
+  put 'user', to: 'user#updateSenha', as: 'user_update_senha'
   put 'dashboard/users/:id', to: 'user#updateFromDash', as: 'user_dash_update'
   delete 'user/:id', to: 'user#destroy', as: 'user_destroy'
 
@@ -72,4 +73,8 @@ Rails.application.routes.draw do
   put 'senha/:id', to: 'senha#update', as: 'senha_update'
   delete 'senha/:id', to: 'senha#destroy', as: 'senha_destroy'
   
+   # Esqueci senha
+  get 'esqueci/:id', to: 'esqueci#index', as: 'esqueci'
+  post 'esqueci/gerarcodigo' , to: 'esqueci#gerarCodigo'
+  put 'esqueci', to: 'esqueci#update', as: 'esqueci_update'
 end

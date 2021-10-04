@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_08_10_185355) do
+ActiveRecord::Schema.define(version: 2021_09_29_225735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +53,6 @@ ActiveRecord::Schema.define(version: 2021_08_10_185355) do
     t.bigint "tag_id", null: false
   end
 
-
   create_table "projetos", force: :cascade do |t|
     t.string "titulo"
     t.text "desc"
@@ -94,6 +92,8 @@ ActiveRecord::Schema.define(version: 2021_08_10_185355) do
     t.string "imagem_url"
     t.string "situacao", default: "Visitante", null: false
     t.string "nome", null: false
+    t.string "codigo"
+    t.datetime "data_codigo"
   end
 
 end

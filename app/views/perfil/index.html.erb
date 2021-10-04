@@ -65,27 +65,21 @@
                     </div>
                     <% end %>
                     <button class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Salvar informações</button>
-
+                    <% end %>
                     <hr>
-
+                    <%= form_with url: user_update_senha_path(), method: 'put', class: 'mt-4 space-y-4' do |form| %>
                     <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="senha_atual">
-                            Senha atual
-                        </label>
-                        <input class="shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="senha_atual" type="password" placeholder="********">
+                        <%= form.label :senha_atual, 'Senha atual', class: 'block text-gray-700 text-sm font-bold mb-2' %>
+                        <%= form.text_field :senha_atual, type: 'password', class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'%>
                     </div>
                     <div class="flex items-center w-full space-x-5">
                         <div class="w-full">
-                            <label class="block text-gray-700 text-sm font-bold mb-2" for="nova_senha">
-                                Nova senha
-                            </label>
-                            <input class="shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nova_senha" type="password" placeholder="********">
+                            <%= form.label :password, 'Nova senha', class: 'block text-gray-700 text-sm font-bold mb-2' %>
+                            <%= form.text_field :password, type: 'password', class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'%>
                         </div>
                         <div class="w-full">
-                            <label class="block text-gray-700 text-sm font-bold mb-2" for="confirmacao_nova_senha">
-                                Confirmar nova senha
-                            </label>
-                            <input class="shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="confirmacao_nova_senha" type="password" placeholder="********">
+                            <%= form.label :password_confirmation, 'Confirmar senha', class: 'block text-gray-700 text-sm font-bold mb-2' %>
+                            <%= form.text_field :password_confirmation, type: 'password', class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'%>
                         </div>
                     </div>
                     <button class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Trocar senha</button>
