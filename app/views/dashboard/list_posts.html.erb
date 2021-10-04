@@ -1,6 +1,11 @@
 <div id="modalPlace"></div>
 <div>
   <h1 class="text-2xl text-gray-700 font-bold">Listagem de posts</h1>
+
+  <div class="mt-10 mb-4">
+    <%= link_to "Criar novo post", dashboard_posts_new_path, :class => "px-4 py-2 rounded text-white font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 disabled:opacity-50 disabled:cursor-default" %>
+  </div
+
   <div class="mt-10">
     <div class="flex flex-col">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
