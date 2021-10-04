@@ -20,7 +20,7 @@
         <span class="ml-2">Início</span>
       </li>
     <% end %>
-    <%= link_to dashboard_posts_path, :class => current_sidebar_class?(dashboard_posts_path) do %>
+    <%= link_to dashboard_posts_path, :class => current_sidebar_class?( if request.path==dashboard_posts_path then dashboard_posts_path elsif request.path==dashboard_posts_new_path then dashboard_posts_new_path end) do %>
       <li class="flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z" />
