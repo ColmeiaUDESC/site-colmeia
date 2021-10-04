@@ -60,3 +60,7 @@ gem 'tailwindcss-rails', '~> 0.3.3'
 gem 'httparty', '~> 0.18.1'
 
 gem 'redcarpet', '~> 3.5.1'
+
+gem 'sendgrid-ruby'
+
+gem 'ruby_http_client'

@@ -1,0 +1,38 @@
+<% if @id == 'codigo' %>
+<div class="bg-gray-100 max-w-md w-full rounded shadow p-10 dark:bg-gray-800">
+    <%= link_to image_tag('Colmeia.png', class: 'h-12 mx-auto'), root_path %>
+    <%= form_with url: esqueci_update_path, method: 'put', class: 'mt-10' do |form| %>
+    <div class="mb-3">
+        <%= form.label :codigo, "Código", class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+        <%= form.text_field :codigo, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600', placeholder: "Digite código de recuperação de senha aqui" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :password, 'Nova senha', class: 'block text-gray-700 text-sm font-bold mb-2' %>
+        <%= form.text_field :password, type: 'password', class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'%>
+    </div>
+    <div class="mb-3">
+        <%= form.label :password_confirmation, 'Confirmar senha', class: 'block text-gray-700 text-sm font-bold mb-2' %>
+        <%= form.text_field :password_confirmation, type: 'password', class: 'shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'%>
+    </div>
+    <div class="flex items-center justify-between">
+        <%= form.submit "Mudar senha", class: 'bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer' %>
+    </div>
+    <% end %>
+</div>
+<% else %>
+<div class="bg-gray-100 max-w-md w-full rounded shadow p-10 dark:bg-gray-800">
+    <%= link_to image_tag('Colmeia.png', class: 'h-12 mx-auto'), root_path %>
+    <%= form_with url: esqueci_gerarcodigo_path, class: 'mt-10' do |form| %>
+    <div class="mb-6">
+        <%= form.label :email, "Email", class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
+        <%= form.email_field :email, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600', placeholder: "seu_email@colmeia.com" %>
+    </div>
+    <div class="flex items-center justify-between">
+        <div class="flex flex-col">
+            <%= link_to 'Já tem código?', esqueci_path(id: 'codigo'), class: 'inline-block align-baseline font-bold text-sm text-gray-700 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300' %>
+        </div>
+        <%= form.submit "Enviar código", class: 'bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer' %>
+    </div>
+    <% end %>
+</div>
+<% end %>

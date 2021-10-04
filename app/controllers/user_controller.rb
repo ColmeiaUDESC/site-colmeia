@@ -22,6 +22,23 @@ class UserController < ApplicationController
       end
     end
 
+
+    def updateSenha
+      user = User.find(session[:user_id]) rescue nil
+      respond_to do |format|
+        if !user.authenticate(params[:senha_atual]) 
+          format.html { redirect_to perfil_path, error: 'Senha atual incorreta!' }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        elsif user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+          format.html { redirect_to perfil_path, success: 'Senha atualizada com sucesso!' }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { redirect_to perfil_path, error: @user.errors.messages.first.second }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+
     def updateFromDash
       if Current.user.situacao!="Bolsista"
         params = user_params.except(:situacao)
