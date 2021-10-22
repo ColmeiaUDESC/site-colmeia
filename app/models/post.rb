@@ -10,8 +10,7 @@ class Post < ApplicationRecord
         too_long: "Descrição deve ter no máximo %{count} caracters",
         too_short: "Descrição deve ter no mínimo %{count} caracters",
     }
-    validates :html, length: { minimum: 5, maximum: 256,
-        too_long: "Corpo do post deve ter no máximo %{count} caracters",
+    validates :html, length: { minimum: 5,
         too_short: "Corpo do post deve ter no mínimo %{count} caracters",
     }
     validates_presence_of :users_name, :message => "Usuário inválido!"
