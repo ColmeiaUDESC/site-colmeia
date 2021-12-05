@@ -38,7 +38,7 @@ class ComentariosController < ApplicationController
       end
 
       def require_user_be_owner
-        if User.find(session[:user_id]).situacao != "Bolsista" && @comentario.user_id != session[:user_id]
+        if User.find(session[:user_id]).situacao != "Bolsista" && User.find(session[:user_id]).situacao != "Admin" && @comentario.user_id != session[:user_id]
             redirect_to request.referer, error: "Voce não pode excluir um comentário que não é seu!"
         end
       end

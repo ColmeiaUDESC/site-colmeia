@@ -55,7 +55,7 @@ class TagController < ApplicationController
     end
 
     def is_bolsista
-      if Current.user.situacao!="Bolsista"
+      if Current.user.situacao!="Bolsista" || Current.user.situacao!="Admin"
         redirect_to request.referer, error: "Permissão negada!"
       end    
     end

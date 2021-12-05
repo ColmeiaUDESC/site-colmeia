@@ -24,7 +24,7 @@
     </div>
     <div class="mb-4">
       <%= form.label :situacao, 'Situação do usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>
-      <%= form.select(:situacao, [['Visitante', 'Visitante'], ['Trainee', 'Trainee'], ['Voluntário', 'Voluntário'], ['Bolsista', 'Bolsista']], {}, { class: 'shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600' }) %>
+      <%= form.select(:situacao, [['Visitante', 'Visitante'], ['Trainee', 'Trainee'], ['Voluntário', 'Voluntário'], ['Bolsista', 'Bolsista'], ['Admin', 'Admin']], {}, { class: 'shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600' }) %>
     </div>
     <div class="mb-4">
       <%= form.label :imagem_url, 'Avatar do usuário', class: 'block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200' %>

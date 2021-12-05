@@ -6,7 +6,7 @@ class UserController < ApplicationController
     def update
       if Current.user.situacao=="Visitante"
         params = user_params_visitante
-      elsif Current.user.situacao!="Bolsista"
+      elsif Current.user.situacao!="Bolsista" || Current.user.situacao!="Admin"
         params = user_params.except(:situacao)
       else 
         params = user_params
@@ -40,7 +40,7 @@ class UserController < ApplicationController
     end
 
     def updateFromDash
-      if Current.user.situacao!="Bolsista"
+      if Current.user.situacao!="Bolsista" || Current.user.situacao!="Admin"
         params = user_params.except(:situacao)
       else 
         params = user_params
