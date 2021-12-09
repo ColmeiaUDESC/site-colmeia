@@ -62,7 +62,7 @@
             <span class="ml-2">Projetos</span>
           </li>
       <% end %>
-    <% if Current.user.situacao == 'Bolsista' %>
+    <% if Current.user.situacao == 'Bolsista' || Current.user.admin %>
       <%= link_to senhas_path, :class => current_sidebar_class?(senhas_path) do %>
         <li class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

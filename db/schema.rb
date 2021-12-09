@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_04_191504) do
+ActiveRecord::Schema.define(version: 2021_12_06_144008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2021_10_04_191504) do
     t.string "nome", null: false
     t.string "codigo"
     t.datetime "data_codigo"
+    t.boolean "admin"
   end
 
 end
