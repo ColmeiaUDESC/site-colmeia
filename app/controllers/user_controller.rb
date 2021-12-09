@@ -6,7 +6,7 @@ class UserController < ApplicationController
     def update
       if Current.user.situacao=="Visitante"
         params = user_params_visitante
-      elsif Current.user.situacao!="Bolsista" || Current.user.situacao!="Admin"
+      elsif Current.user.situacao!="Bolsista" && !Current.user.admin
         params = user_params.except(:situacao)
       else 
         params = user_params
@@ -40,14 +40,14 @@ class UserController < ApplicationController
     end
 
     def updateFromDash
-      if Current.user.situacao!="Bolsista" || Current.user.situacao!="Admin"
-        params = user_params.except(:situacao)
+      if Current.user.situacao!="Bolsista" && !Current.user.admin
+        params = user_params.except(:situacao, :admin)
       else 
         params = user_params
       end
       respond_to do |format|
         if @user.update(params)
-          format.html { redirect_to dashboard_users_path, success: 'Usuário atualizado com sucesso!' }
+          format.html { redirect_to dashboard_users_path, success: 'Usuário atualizado com sucesso!'}
           format.json { render :show, status: :ok, location: @user }
         else
           format.html { redirect_to dashboard_users_path, error: @user.errors.full_messages }
@@ -74,7 +74,7 @@ class UserController < ApplicationController
       def set_user
         @user = User.find(params[:id]) rescue nil
         if @user
-          if User.find(session[:user_id]).situacao != "Bolsista" && Current.user.id!=@user.id
+          if User.find(session[:user_id]).situacao != "Bolsista" && !User.find(session[:user_id]).admin && Current.user.id!=@user.id
               redirect_to request.referer, error: "Você não pode editar esse usuário!"
           end
         else
@@ -93,7 +93,7 @@ class UserController < ApplicationController
         params.permit(:nome, :sobrenome, :email, :password, :password_confirmation, :imagem_url)
       end
       def user_params
-        params.permit(:nome, :sobrenome, :email, :password, :password_confirmation, :situacao, :imagem_url, :desc, :github_username, :instagram_username, :twitter_username, :discord_username)
+        params.permit(:nome, :sobrenome, :email, :password, :password_confirmation, :situacao, :admin, :imagem_url, :desc, :github_username, :instagram_username, :twitter_username, :discord_username)
       end
 
 
