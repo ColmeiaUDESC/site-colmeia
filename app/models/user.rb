@@ -20,5 +20,6 @@ class User < ApplicationRecord
     validates_confirmation_of :password, :message => "senhas não batem!"
     validates_confirmation_of :password_confirmation, :message => "senhas não batem!"
     validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'em formato inválido' }
+    validates :email, uniqueness: { scope: :email, message: " já está em uso!" }
     has_many :comentario
 end
